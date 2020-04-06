@@ -1,0 +1,27 @@
+:root {
+  --color1: rgb(62, 120, 178);
+  --color2: rgba(99, 199, 178, 1);
+  --color3: rgba(247, 178, 183, 1);
+  --color4: rgba(214, 87, 128, 1);
+  --color5: rgb(123, 40, 125, 1);
+  --color6: rgb(255, 255, 255, 1);
+}
+body {
+  margin: 0;
+}
+.grid-container {
+  font-family: sans-serif;
+  background-color: var(--color1);
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.1fr 1fr 1fr;
+  grid-template-areas: "Nav" "Current" "Forecast";
+  justify-items: stretch;
+}
+
+@media only screen and (min-width: 600px) {
+  .grid-container {
+    grid-template-columns: 1fr 3fr 1fr;
+    grid-template-areas: ". Nav ." ". Current ." ". Forecast .";
+  }
+}

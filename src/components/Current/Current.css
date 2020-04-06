@@ -1,0 +1,107 @@
+.owf-8x {
+  font-size: 8em;
+}
+.Current {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 2fr 1fr;
+  grid-template-areas: "County-City County-City" "Weather Weather" "Details Details";
+  grid-area: Current;
+  background-color: var(--color6);
+  min-width: 300px;
+}
+
+.Country_City {
+  grid-area: County-City;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+.Country_City button {
+  font-size: 20px;
+}
+
+.Weather {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 3fr 1fr;
+  grid-template-areas: "Temp Icon" "Feels Description";
+  grid-area: Weather;
+}
+
+.Temp {
+  grid-area: Temp;
+  font-size: -webkit-xxx-large;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Feels {
+  grid-area: Feels;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.Icon {
+  grid-area: Icon;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: space-around;
+  align-items: center;
+}
+.Icon_Image {
+  background: var(--color1);
+  border-radius: 20px;
+  box-shadow: -10px -4px 28px var(--color1), 10px 4px 28px var(--color1);
+}
+
+.Description {
+  grid-area: Description;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 17px;
+  font-weight: 100;
+}
+
+.Details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 0.5fr 0.5fr;
+  grid-template-areas: "Humidity Wind" "Update SunHours";
+  grid-area: Details;
+  justify-items: center;
+  align-items: center;
+}
+
+.Humidity {
+  grid-area: Humidity;
+}
+
+.Update {
+  grid-area: Update;
+}
+
+.Wind {
+  grid-area: Wind;
+}
+
+.SunHours {
+  grid-area: SunHours;
+}
+
+.extra__sun {
+  display: flex;
+  flex-flow: column nowrap;
+}
+@media only screen and (min-width: 600px) {
+  .extra__sun {
+    flex-flow: row nowrap;
+  }
+  .extra__sunset {
+    margin-left: 8px;
+  }
+}
