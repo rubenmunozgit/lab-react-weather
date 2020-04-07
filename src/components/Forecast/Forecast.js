@@ -37,7 +37,6 @@ const Forecast = props => {
   const { list } = props;
   const { lang } = useContext(LanguageContext);
   moment.locale(lang);
-  console.log(moment.locale());
   return (
     <div className="Forecast">
       <div className="graphic">{renderForecastDay(list)}</div>
