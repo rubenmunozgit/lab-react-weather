@@ -1,5 +1,12 @@
 import React, { useContext } from "react";
-import moment from "moment-with-locales-es6";
+import moment from "moment";
+import "moment/locale/es";
+import "moment/locale/it";
+import "moment/locale/fr";
+import "moment/locale/de";
+import "moment/locale/el";
+import "moment/locale/pt";
+import "moment/locale/ru";
 import { LanguageContext } from "../../Context";
 import "./Forecast.css";
 
@@ -30,6 +37,7 @@ const Forecast = props => {
   const { list } = props;
   const { lang } = useContext(LanguageContext);
   moment.locale(lang);
+  console.log(moment.locale());
   return (
     <div className="Forecast">
       <div className="graphic">{renderForecastDay(list)}</div>

@@ -21,7 +21,7 @@
 .navbar-link {
   border-bottom: none;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   height: 30px;
 }
