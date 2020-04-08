@@ -17,7 +17,7 @@ body {
   grid-template-rows: 0.1fr 1fr 1fr;
   grid-template-areas: "Nav" "Current" "Forecast";
   justify-items: stretch;
-  height: 100vh;
+  height: auto;
 }
 
 @media only screen and (min-width: 600px) {

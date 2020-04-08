@@ -4,7 +4,6 @@ import "./Loading.css";
 
 const Loading = () => {
   const { translatedText } = useContext(LanguageContext);
-  console.log(translatedText);
   return (
     <div>
       <h1>{translatedText.loading_Weather_Info_title}</h1>
