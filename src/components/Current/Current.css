@@ -43,6 +43,7 @@
 
 .Temp__Feels {
   font-size: 1em;
+  font-weight: 100;
 }
 
 .Icon {
@@ -62,7 +63,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 17px;
+  font-size: 1em;
   font-weight: 100;
 }
 
