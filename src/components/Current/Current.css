@@ -25,31 +25,31 @@
 .Weather {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-template-rows: 3fr 1fr;
-  grid-template-areas: "Temp Icon" "Feels Description";
+  grid-template-rows: 3fr;
+  grid-template-areas: "Temp Icon";
   grid-area: Weather;
 }
 
 .Temp {
   grid-area: Temp;
-  font-size: -webkit-xxx-large;
   display: flex;
+  flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
 }
+.Temp__Current {
+  font-size: -webkit-xxx-large;
+}
 
-.Feels {
-  grid-area: Feels;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.Temp__Feels {
+  font-size: 1em;
 }
 
 .Icon {
   grid-area: Icon;
   display: flex;
   flex-flow: column nowrap;
-  justify-content: space-around;
+  justify-content: space-evenly;
   align-items: center;
 }
 .Icon_Image {
@@ -59,7 +59,6 @@
 }
 
 .Description {
-  grid-area: Description;
   display: flex;
   justify-content: center;
   align-items: center;

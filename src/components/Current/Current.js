@@ -29,16 +29,20 @@ const Current = props => {
         <button onClick={refresh}>⟳</button>
       </div>
       <div className="Weather">
-        <div className="Temp">{temperature}º</div>
-        <div className="Feels">
-          {translatedText.feels_like}: {feels_like}º
+        <div className="Temp">
+          <div className="Temp__Current">{temperature}º</div>
+          <div className="Temp__Feels">
+            {translatedText.feels_like}: {feels_like}º
+          </div>
         </div>
+        
         <div className="Icon">
           <div className="Icon_Image">
             <i className={`owf owf-${icon} owf-8x`} />
           </div>
+          <div className="Description">{description}</div>
         </div>
-        <div className="Description">{description}</div>
+        
       </div>
       <div className="Details">
         <div className="Humidity">
