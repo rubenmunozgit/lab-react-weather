@@ -123,15 +123,20 @@ export default class App extends React.Component {
     }
     return (
       <LanguageContext.Provider value={translated}>
-        <div className="grid-container">
-          <Nav isF={isF} handleToggleChange={this.handleToggle} />
-          <Current
-            {...current}
-            {...system}
-            settings={settings}
-            refresh={this.handleRefresh}
-          />
-          <Forecast {...forecast} />
+        <div className="background">
+          <div className="grid-container">
+            <Nav isF={isF} 
+              handleToggleChange={this.handleToggle} />
+            <Current
+              {...current}
+              {...system}
+              settings={settings}
+              refresh={this.handleRefresh}
+            />
+            <Forecast 
+              {...forecast} 
+              settings={settings} />
+          </div>
         </div>
       </LanguageContext.Provider>
     );
