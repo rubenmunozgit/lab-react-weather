@@ -9,15 +9,17 @@
 body {
   margin: 0;
 }
+.background {
+  background-color: var(--color1);
+}
 .grid-container {
   font-family: sans-serif;
-  background-color: var(--color1);
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: 0.1fr 1fr 1fr;
   grid-template-areas: "Nav" "Current" "Forecast";
   justify-items: stretch;
-  height: auto;
+  min-height: 100vh;
 }
 
 @media only screen and (min-width: 600px) {
