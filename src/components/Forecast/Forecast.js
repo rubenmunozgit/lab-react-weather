@@ -11,6 +11,7 @@ import { LanguageContext } from "../../Context";
 import "./Forecast.css";
 
 const bgColors = {
+  burning: "rgba(245, 87, 66, 1)",
   verywarm: "rgba(255, 130, 20, 1)",
   warm: "rgba(240, 216, 0, 1)",
   normal: "rgba(62, 179, 62, 1)",
@@ -25,7 +26,10 @@ const getTempColor = (temp, metrics) => {
   const MAX_COLD = metrics === "metric" ? 10 : 50;
   const MAX_VERYCOLD = metrics === "metric" ? 0 : 32;
   if (temp >= MAX_VERYWARN) {
-    return bgColors.warm;
+    return bgColors.burning;
+  }
+  if (MAX_WARN <= temp && temp < MAX_VERYWARN) {
+    return bgColors.verywarm;
   }
   if (MAX_NORMAL <= temp && temp < MAX_WARN) {
     return bgColors.warm;
@@ -58,7 +62,13 @@ const renderForecastDay = (list, settings) => {
           <span className="max" 
             style={{
               width: `${percent}%`,
-              backgroundColor: getTempColor(day.max, settings) 
+              background: `linear-gradient(90deg, ${getTempColor(
+                -2,
+                settings
+              )} 0%, ${getTempColor(4, settings)} 15%, ${getTempColor(
+                day.max,
+                settings
+              )} 100%)` 
           }}>
             {day.max}
           </span>
