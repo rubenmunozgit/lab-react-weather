@@ -35,7 +35,6 @@ span {
   box-sizing: border-box;
   float: left;
   font-weight: bold;
-  font-family: arial, sans-serif;
   padding: 10px;
 }
 .min {
@@ -43,8 +42,8 @@ span {
   width: 20%;
 }
 .max {
-  background: var(--color2);
   border-radius: 0 10px 10px 0;
+  text-align: end;
 }
 
 @media screen and (min-width: 600px) {

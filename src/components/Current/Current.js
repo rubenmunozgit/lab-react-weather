@@ -25,7 +25,7 @@ const Current = props => {
   return (
     <div className="Current">
       <div className="Country_City">
-        <div>{`${city}, ${country}`}</div>
+        <h2>{`${city}, ${country}`}</h2>
         <button onClick={refresh}>⟳</button>
       </div>
       <div className="Weather">
