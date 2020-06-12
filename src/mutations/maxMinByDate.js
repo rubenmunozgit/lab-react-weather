@@ -4,7 +4,7 @@ const getMaxMinByDate = list => {
   const aggregateByDate = list
     .map(wPoint => ({
       date: dateFormat(wPoint.dt_txt.replace(/-/g, '/')),
-      temp: wPoint.main.temp
+      temp: wPoint.main.temp.toFixed(1)
     }))
     .reduce((groups, item) => {
       const group = groups[item.date] || { date: groups[item.date], temps: [] };

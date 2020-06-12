@@ -4,7 +4,7 @@ import { timeFormat, sunHours } from './dateFomat';
 const transformData = data => {
   const [weather, forecast] = data;
   const {
-    main: { temp: temperature, feels_like, temp_max, temp_min, humidity },
+    main: { temp, feels_like, humidity },
     weather: [{ description, id: icon }],
     wind: { speed },
     sys: { country, sunrise, sunset },
@@ -15,10 +15,8 @@ const transformData = data => {
   const { list } = forecast;
   return {
     currentWeather: {
-      temperature,
-      feels_like,
-      temp_max,
-      temp_min,
+      temperature: temp.toFixed(1),
+      feels_like: feels_like.toFixed(1),
       humidity,
       description,
       icon,
