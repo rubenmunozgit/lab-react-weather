@@ -37,12 +37,13 @@
   align-items: center;
 }
 .Temp__Current {
-  font-size: xx-large;
+  font-size: 70px;
 }
 
 .Temp__Feels {
   font-weight: lighter;
   font-size: 1em;
+  color: #919191;
 }
 
 .Icon {
@@ -64,6 +65,7 @@
   align-items: center;
   font-weight: lighter;
   font-size: 1em;
+  color: #919191;
 }
 
 .Details {
