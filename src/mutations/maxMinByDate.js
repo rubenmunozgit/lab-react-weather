@@ -14,12 +14,12 @@ const getMaxMinByDate = list => {
       return groups;
     }, {});
 
-  const groupByDateArray = Object.keys(aggregateByDate).map(date => {
-    return {
-      date,
-      temps: aggregateByDate[date].temps
-    };
-  });
+  const groupByDateArray = Object.keys(aggregateByDate)
+    .map(date => ({
+        date,
+        temps: aggregateByDate[date].temps
+      }))
+    .slice(1);
 
   const tempMaxMinByDate = groupByDateArray.map(curr => {
     const maxMinByDate = curr.temps.reduce((agg, currEle) => {
