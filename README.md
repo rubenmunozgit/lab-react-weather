@@ -20,7 +20,7 @@ The weather is calculated based on the geolocation provided by the Browser, so o
 this 5 day forecast api gives you the temperature every 3 hours. 
 
 ## Some CSS
-Because I don't use any bootstrap or simila the UI is quite simple, most of it is done with `Grid` and `Flexbox`.
+Because I don't use any bootstrap or similar, the UI is quite simple, most of it is done with `Grid` and `Flexbox`.
 I followed the principle of mobile first.
 
 ### Forecast CSS bars
@@ -42,11 +42,12 @@ const bgColors = {
 
 ## Internationalitation
 The web app use the Browser language set by default to check the language and use the translated text to show in the web app.
-[how to set default language in chrome | https://support.google.com/chrome/answer/173424?co=GENIE.Platform%3DDesktop&hl=en]. 
+[how to set default language in chrome](https://support.google.com/chrome/answer/173424?co=GENIE.Platform%3DDesktop&hl=en). 
 
 If the Browser is not able to get the default language, then English will be the default language.
 
 Right now only support these languages:
-- English
-- Spanish
-If you would like to contribute, you are welcome!
+- English :us:
+- Spanish :es:
+
+If you would like to contribute, you are welcome! :wink:
