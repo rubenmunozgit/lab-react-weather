@@ -10,11 +10,11 @@ Please check the real thing: https://rubenmunozgit.github.io/lab-react-weather/
 - I tried to build all css by myself, I did not use any framework like bootstrap or similar (please don't judge ;).
 
 ## Weather API
-Ok, so I use openweathermap with the a free account; by the time of writing this app there is only available fre api information for the `Current Weather Data` and the `5 day weather forecast`.
+Ok, so I use openweathermap with the a free account; by the time of writing this app there is available a free api information for the `Current Weather Data` and the `5 day weather forecast`.
 
 I had to do some tricks and calculations to get the forecast by day before represent in the UI.
 
-The weather is calculated based on the geolocation provided by the Browser, so once I got the `lat` and `long` there will be to api calls:
+The weather is calculated based on the geolocation provided by the Browser, so once I got the `lat` and `long` there will be two api calls:
 - Current Conditions: `api.openweathermap.org/data/2.5/weather?`
 - Forecast Data: `api.openweathermap.org/data/2.5/forecast?`
 this 5 day forecast api gives you the temperature every 3 hours. 
