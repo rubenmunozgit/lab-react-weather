@@ -13,7 +13,7 @@
   },
   "devDependencies": {
     "typescript": "3.3.3",
-    "gh-pages": "2.2.0"
+    "gh-pages": "5.0.0"
   },
   "scripts": {
     "predeploy": "npm run build",
