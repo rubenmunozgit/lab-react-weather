@@ -1,5 +1,5 @@
 const bgColors = {
-  burning: "rgba(245, 120, 66, 1)",
+  burning: "rgba(245, 120, 65, 1)",
   verywarm: "rgba(245, 182, 66, 1)",
   warm: "rgba(236, 245, 66, 1)",
   normal: "rgba(66, 245, 72, 1)",
