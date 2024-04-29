@@ -20,8 +20,6 @@ jobs:
   # Build and deploy job
   build_and_deploy:
     runs-on: ubuntu-latest
-    env:
-      REACT_APP_APIKEY: ${{ secrets.REACT_APP_APIKEY }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -34,3 +32,4 @@ jobs:
           npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REACT_APP_APIKEY: ${{ secrets.REACT_APP_APIKEY }}
