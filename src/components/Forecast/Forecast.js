@@ -21,7 +21,7 @@ const renderForecastDay = (list, settings) => {
     const percent = (day.max / max) * 80;
 
     return (
-      <div key={day.date} className="row">
+      <div key={day.date} className="rowDay">
         <h6>{moment(day.date).format("ddd, Do")}</h6>
         <div className="dayForecast">
           <span className="min">{day.min}</span>

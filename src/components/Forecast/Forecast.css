@@ -19,7 +19,7 @@ h6 {
   height: 100%;
   padding: 8px 0;
 }
-.row {
+.rowDay {
   margin-bottom: 0.5em;
   display: flex;
   flex-flow: column nowrap;
