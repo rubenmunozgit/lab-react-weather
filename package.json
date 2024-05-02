@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "gh-pages": "5.0.0",
+    "prettier": "3.2.5",
     "typescript": "3.3.3"
   },
   "scripts": {
