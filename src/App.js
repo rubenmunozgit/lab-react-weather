@@ -1,10 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { LanguageContext } from "./Context";
 import { translations } from "./translations";
-import config from "./utils/config";
-import getCoords from "./servicesClients/coordenates";
-import callApi from "./servicesClients/weather";
-import transformData from "./mutations/weatherData";
+import fetchWeatherData from "./servicesClients/getWeatherData";
 import Loading from "./components/Loading/Loading";
 import Current from "./components/Current/Current";
 import Forecast from "./components/Forecast/Forecast";
@@ -28,98 +25,68 @@ const App = () => {
     }
   });
 
-  useEffect(() => {
-    const metrics = state.settings;
-    getCoords()
-      .then(position => ({
-        lat: position.coords.latitude,
-        long: position.coords.longitude
-      }))
-      .then(coords => {
-        const weatherUrl = `${config.openWeatherUrl}weather?lat=${coords.lat}&lon=${coords.long}&units=${metrics}&lang=${lang}&appid=${config.openWeatherApiKey}`;
+  const handleWeather = async () => {
+    try {
+      const weatherData= await fetchWeatherData(state.settings, lang);
+      setState(prevState => ({
+        ...prevState,
+        weatherData
+      }));
+    }
+    catch (err) {
+      console.log(`there was an error: ${err.code} ; ${err.message}`);
+    }
+  }
 
-        const forecastUrl = `${config.openWeatherUrl}forecast?lat=${coords.lat}&lon=${coords.long}&units=${metrics}&lang=${lang}&appid=${config.openWeatherApiKey}`;
-
-        return Promise.all([callApi(weatherUrl), callApi(forecastUrl)]);
-      })
-      .then(weather => transformData(weather))
-      .then(weatherData => {
-        setState(prevState => ({
-          ...prevState,
-          weatherData,
-          loading: false
-        }));
-      })
-      .catch(err =>
-        console.log(`there was an error: ${err.code} ; ${err.message}`)
-      );
-  }, [state.settings]);
-
-  const handleToggle = value => {
-    const toggleValue = value.target.checked;
+  const handleToggle = ({ target: { checked } }) => {
     setState(prevState => ({
       ...prevState,
-      settings: toggleValue === true ? "imperial" : "metric"
+      settings: checked ? "imperial" : "metric"
     }));
   };
 
-  const handleRefresh = () => {
-    const {
-      weatherData: {
-        system: {
-          geo: { lat, lon }
-        }
-      },
-      settings
-    } = state;
-    const weatherUrl = `${config.openWeatherUrl}weather?lat=${lat}&lon=${lon}&units=${settings}&lang=${lang}&appid=${config.openWeatherApiKey}`;
-    const forecastUrl = `${config.openWeatherUrl}forecast?lat=${lat}&lon=${lon}&units=${settings}&lang=${lang}&appid=${config.openWeatherApiKey}`;
-
-    try {
-      Promise.all([callApi(weatherUrl), callApi(forecastUrl)])
-        .then(weather => transformData(weather))
-        .then(weatherData => {
-          setState(prevState => ({
-            ...prevState,
-            weatherData,
-          }));
-        });
-    } catch (error) {
-      console.log(error);
+  useEffect( () => {
+    const asyncHandler = async () => {
+      await handleWeather();
+      setState(prevState => ({
+        ...prevState,
+        loading: false
+      }));
     }
-  };
+    asyncHandler()
+  }, [state.settings]);
 
-    const {
-      loading,
-      settings,
-      weatherData: { currentWeather: current, system, forecast }
-    } = state;
-    const isF = settings === "metric" ? false : true;
-    if (loading) {
-      return (
-        <LanguageContext.Provider value={translated}>
-          <Loading />
-        </LanguageContext.Provider>
-      );
-    }
+  const {
+    loading,
+    settings,
+    weatherData: { currentWeather: current, system, forecast }
+  } = state;
+  const isF = settings !== "metric";
+  if (loading) {
     return (
       <LanguageContext.Provider value={translated}>
-        <div className="background">
-          <div className="grid-container">
-            <Nav isF={isF} 
-              handleToggleChange={handleToggle} />
-            <Current
-              {...current}
-              {...system}
-              settings={settings}
-              refresh={handleRefresh}
-            />
-            <Forecast 
-              {...forecast} 
-              settings={settings} />
-          </div>
-        </div>
+        <Loading />
       </LanguageContext.Provider>
     );
+  }
+  return (
+    <LanguageContext.Provider value={translated}>
+      <div className="background">
+        <div className="grid-container">
+          <Nav isF={isF}
+            handleToggleChange={handleToggle} />
+          <Current
+            {...current}
+            {...system}
+            settings={settings}
+            refresh={handleWeather}
+          />
+          <Forecast
+            {...forecast}
+            settings={settings} />
+        </div>
+      </div>
+    </LanguageContext.Provider>
+  );
 }
 export default App;
