@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { LanguageContext } from "./Context";
 import { translations } from "./translations";
 import config from "./utils/config";
@@ -17,8 +17,8 @@ const translated = {
   translatedText: translations[lang]
 };
 
-export default class App extends React.Component {
-  state = {
+const App = () => {
+  const [state, setState] = useState({
     loading: true,
     settings: "metric",
     weatherData: {
@@ -26,56 +26,44 @@ export default class App extends React.Component {
       forecast: [],
       system: []
     }
-  };
+  });
 
-  componentDidMount() {
-    const metrics = this.state.settings;
+  useEffect(() => {
+    const metrics = state.settings;
     getCoords()
       .then(position => ({
         lat: position.coords.latitude,
         long: position.coords.longitude
       }))
       .then(coords => {
-        const weatherUrl = `${config.openWeatherUrl}weather?lat=${
-          coords.lat
-        }&lon=${coords.long}&units=${metrics}&lang=${lang}&appid=${
-          config.openWeatherApiKey
-        }`;
+        const weatherUrl = `${config.openWeatherUrl}weather?lat=${coords.lat}&lon=${coords.long}&units=${metrics}&lang=${lang}&appid=${config.openWeatherApiKey}`;
 
-        const forecastUrl = `${config.openWeatherUrl}forecast?lat=${
-          coords.lat
-        }&lon=${coords.long}&units=${metrics}&lang=${lang}&appid=${
-          config.openWeatherApiKey
-        }`;
+        const forecastUrl = `${config.openWeatherUrl}forecast?lat=${coords.lat}&lon=${coords.long}&units=${metrics}&lang=${lang}&appid=${config.openWeatherApiKey}`;
 
         return Promise.all([callApi(weatherUrl), callApi(forecastUrl)]);
       })
       .then(weather => transformData(weather))
       .then(weatherData => {
-        this.setState({
+        setState(prevState => ({
+          ...prevState,
           weatherData,
           loading: false
-        });
+        }));
       })
       .catch(err =>
         console.log(`there was an error: ${err.code} ; ${err.message}`)
       );
-  }
+  }, [state.settings]);
 
-  componentDidUpdate(prevProps, prevState) {
-    if (prevState.settings !== this.state.settings) {
-      this.handleRefresh();
-    }
-  }
-
-  handleToggle = value => {
+  const handleToggle = value => {
     const toggleValue = value.target.checked;
-    this.setState({
+    setState(prevState => ({
+      ...prevState,
       settings: toggleValue === true ? "imperial" : "metric"
-    });
+    }));
   };
 
-  handleRefresh = () => {
+  const handleRefresh = () => {
     const {
       weatherData: {
         system: {
@@ -83,36 +71,29 @@ export default class App extends React.Component {
         }
       },
       settings
-    } = this.state;
-    const weatherUrl = `${
-      config.openWeatherUrl
-    }weather?lat=${lat}&lon=${lon}&units=${settings}&lang=${lang}&appid=${
-      config.openWeatherApiKey
-    }`;
-    const forecastUrl = `${
-      config.openWeatherUrl
-    }forecast?lat=${lat}&lon=${lon}&units=${settings}&lang=${lang}&appid=${
-      config.openWeatherApiKey
-    }`;
+    } = state;
+    const weatherUrl = `${config.openWeatherUrl}weather?lat=${lat}&lon=${lon}&units=${settings}&lang=${lang}&appid=${config.openWeatherApiKey}`;
+    const forecastUrl = `${config.openWeatherUrl}forecast?lat=${lat}&lon=${lon}&units=${settings}&lang=${lang}&appid=${config.openWeatherApiKey}`;
+
     try {
       Promise.all([callApi(weatherUrl), callApi(forecastUrl)])
         .then(weather => transformData(weather))
         .then(weatherData => {
-          this.setState({
+          setState(prevState => ({
+            ...prevState,
             weatherData,
-            loading: false
-          });
+          }));
         });
     } catch (error) {
       console.log(error);
     }
   };
-  render() {
+
     const {
       loading,
       settings,
       weatherData: { currentWeather: current, system, forecast }
-    } = this.state;
+    } = state;
     const isF = settings === "metric" ? false : true;
     if (loading) {
       return (
@@ -126,12 +107,12 @@ export default class App extends React.Component {
         <div className="background">
           <div className="grid-container">
             <Nav isF={isF} 
-              handleToggleChange={this.handleToggle} />
+              handleToggleChange={handleToggle} />
             <Current
               {...current}
               {...system}
               settings={settings}
-              refresh={this.handleRefresh}
+              refresh={handleRefresh}
             />
             <Forecast 
               {...forecast} 
@@ -140,5 +121,5 @@ export default class App extends React.Component {
         </div>
       </LanguageContext.Provider>
     );
-  }
 }
+export default App;
