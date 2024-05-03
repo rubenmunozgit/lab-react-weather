@@ -1,34 +1,31 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import Toggle from "../Switch/Toggle";
 import "./Nav.css";
 
-class Nav extends Component {
-  state = {
-    isExpanded: false
-  };
-  handleOpen = () => {
-    const { isExpanded } = this.state;
-    this.setState({
+const Nav = (props) => {
+  const [state, setState] = useState({isExpanded: false})
+  const handleOpen = () => {
+    const { isExpanded } = state;
+    setState({
       isExpanded: !isExpanded
     });
   };
-  render() {
-    const { isExpanded } = this.state;
-    const { handleToggleChange, isF } = this.props;
-    return (
+
+  const { isExpanded } = state;
+  const { handleToggleChange, isF } = props;
+  return (
       <nav className="Nav">
         <div className="navbar-home">
-          <button className="toggle" onClick={this.handleOpen}>
+          <button className="toggle" onClick={handleOpen}>
             ☰
           </button>
         </div>
         <ul className={"navbar-links " + (isExpanded ? "opened" : "")}>
           <li className="navbar-link">
-            <Toggle isF={isF} handleToggle={handleToggleChange} />
+            <Toggle isF={isF} handleToggle={handleToggleChange}/>
           </li>
         </ul>
       </nav>
-    );
-  }
+  );
 }
 export default Nav;
