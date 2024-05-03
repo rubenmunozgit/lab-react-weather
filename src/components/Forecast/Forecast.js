@@ -43,7 +43,7 @@ const Forecast = props => {
   const { lang } = useContext(LanguageContext);
   moment.locale(lang);
   return (
-    <div className="Forecast">
+    <div className="Forecast vh-100">
       <div className="graphic">{renderForecastDay(list, settings)}</div>
     </div>
   );
