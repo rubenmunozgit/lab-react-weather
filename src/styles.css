@@ -6,25 +6,4 @@
   --color5: rgb(123, 40, 125, 1);
   --color6: rgb(255, 255, 255, 1);
 }
-body {
-  margin: 0;
-  font-family: 'Ubuntu', sans-serif;
-}
-.background {
-  background-color: var(--color1);
-}
-.grid-container {
-  display: grid;
-  grid-template-columns: 1fr;
-  grid-template-rows: 0.1fr 1fr 1fr;
-  grid-template-areas: "Nav" "Current" "Forecast";
-  justify-items: stretch;
-  min-height: 100vh;
-}
 
-@media only screen and (min-width: 600px) {
-  .grid-container {
-    grid-template-columns: 1fr 3fr 1fr;
-    grid-template-areas: ". Nav ." ". Current ." ". Forecast .";
-  }
-}

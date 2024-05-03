@@ -64,26 +64,42 @@ const App = () => {
   const isF = settings !== "metric";
   if (loading) {
     return (
-      <LanguageContext.Provider value={translated}>
-        <Loading />
-      </LanguageContext.Provider>
-    );
+        <LanguageContext.Provider value={translated}>
+          <div className="container-md-fuild bg-success">
+            <div className="row row-cols-md-3">
+              <div className="col-md-8">
+                <Loading/>
+              </div>
+            </div>
+          </div>
+        </LanguageContext.Provider>
+  );
   }
   return (
     <LanguageContext.Provider value={translated}>
-      <div className="background">
-        <div className="grid-container">
-          <Nav isF={isF}
-            handleToggleChange={handleToggle} />
-          <Current
-            {...current}
-            {...system}
-            settings={settings}
-            refresh={handleWeather}
-          />
-          <Forecast
-            {...forecast}
-            settings={settings} />
+      <div className="container-md-fuild bg-success">
+        <div className="row row-cols-md-3">
+          <div className="col-md-8">
+            <Nav isF={isF}
+                 handleToggleChange={handleToggle}/>
+          </div>
+        </div>
+        <div className="row row-cols-md-3">
+          <div className="col-md-8">
+            <Current
+                {...current}
+                {...system}
+                settings={settings}
+                refresh={handleWeather}
+            />
+          </div>
+        </div>
+        <div className="row row-cols-md-3">
+          <div className="col-md-8">
+            <Forecast
+                {...forecast}
+                settings={settings}/>
+          </div>
         </div>
       </div>
     </LanguageContext.Provider>
