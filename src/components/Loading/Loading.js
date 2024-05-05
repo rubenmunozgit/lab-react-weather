@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
-import { LanguageContext } from "../../Context";
-import "./Loading.css";
+import React, { useContext } from 'react';
+import { LanguageContext } from '../../contexts/LanguageContext';
+import './Loading.css';
 
 const Loading = () => {
   const { translatedText } = useContext(LanguageContext);

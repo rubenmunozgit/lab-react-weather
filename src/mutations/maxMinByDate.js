@@ -1,10 +1,10 @@
 import { dateFormat } from './dateFomat';
 
-const getMaxMinByDate = list => {
+const getMaxMinByDate = (list) => {
   const aggregateByDate = list
-    .map(wPoint => ({
+    .map((wPoint) => ({
       date: dateFormat(wPoint.dt_txt.replace(/-/g, '/')),
-      temp: wPoint.main.temp.toFixed(1)
+      temp: wPoint.main.temp.toFixed(1),
     }))
     .reduce((groups, item) => {
       const group = groups[item.date] || { date: groups[item.date], temps: [] };
@@ -15,13 +15,13 @@ const getMaxMinByDate = list => {
     }, {});
 
   const groupByDateArray = Object.keys(aggregateByDate)
-    .map(date => ({
-        date,
-        temps: aggregateByDate[date].temps
-      }))
+    .map((date) => ({
+      date,
+      temps: aggregateByDate[date].temps,
+    }))
     .slice(1);
 
-  const tempMaxMinByDate = groupByDateArray.map(curr => {
+  const tempMaxMinByDate = groupByDateArray.map((curr) => {
     const maxMinByDate = curr.temps.reduce((agg, currEle) => {
       agg.date = curr.date;
       agg.min = agg.min === undefined || currEle < agg.min ? currEle : agg.min;

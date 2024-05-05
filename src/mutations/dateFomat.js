@@ -1,4 +1,4 @@
-const dateFormat = date => {
+const dateFormat = (date) => {
   let d = new Date(date),
     month = '' + (d.getMonth() + 1),
     day = '' + d.getDate(),
@@ -10,12 +10,12 @@ const dateFormat = date => {
   return [year, month, day].join('-');
 };
 
-const timeFormat = dt => {
+const timeFormat = (dt) => {
   const date = new Date(dt * 1000);
   return date.toLocaleTimeString();
 };
 
-const sunHours = dt => {
+const sunHours = (dt) => {
   const date = new Date(dt * 1000);
   return date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
 };
