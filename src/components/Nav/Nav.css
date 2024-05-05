@@ -22,7 +22,7 @@
   border-bottom: none;
   display: flex;
   justify-content: flex-start;
-  align-items: center;
+  align-items: flex-start;
   height: 30px;
 }
 
@@ -34,7 +34,7 @@
 
   .navbar-link {
     display: flex;
-    align-items: center; /* we want children to be centered vertically*/
+    align-items: flex-start; /* we want children to be centered vertically*/
     margin: 10px;
   }
 

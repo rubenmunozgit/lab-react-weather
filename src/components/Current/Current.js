@@ -1,10 +1,13 @@
-import React, { useContext } from "react";
-import stringInject from "stringinject";
-import { LanguageContext } from "../../Context";
-import "./Current.css";
+import React, { useContext } from 'react';
+import stringInject from 'stringinject';
+import { LanguageContext } from '../../contexts/LanguageContext';
+import './Current.css';
+import { units } from '../../utils/units';
+import { SettingsContext } from '../../contexts/SettingsContext';
 
-const Current = props => {
+const Current = (props) => {
   const { translatedText } = useContext(LanguageContext);
+  const { unit } = useContext(SettingsContext);
   const {
     temperature,
     feels_like,
@@ -16,10 +19,9 @@ const Current = props => {
     country,
     dt,
     sunHours,
-    settings,
-    refresh
+    refresh,
   } = props;
-  const windMetrics = settings === "metric" ? "m/s" : "mi/h";
+  const windMetrics = units[unit].speed;
   const sunHoursperDay = sunHours.sunHours;
 
   return (
@@ -35,14 +37,13 @@ const Current = props => {
             {translatedText.feels_like}: {feels_like}º
           </div>
         </div>
-        
+
         <div className="Icon">
           <div className="Icon_Image">
             <i className={`owf owf-${icon} owf-8x`} />
           </div>
           <div className="Description">{description}</div>
         </div>
-        
       </div>
       <div className="Details">
         <div className="Humidity">

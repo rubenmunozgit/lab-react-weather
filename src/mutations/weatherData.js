@@ -1,7 +1,7 @@
 import getMaxMinByDate from './maxMinByDate';
 import { timeFormat, sunHours } from './dateFomat';
 
-const transformData = data => {
+const transformData = (data) => {
   const [weather, forecast] = data;
   const {
     main: { temp, feels_like, humidity },
@@ -10,7 +10,7 @@ const transformData = data => {
     sys: { country, sunrise, sunset },
     dt,
     name: city,
-    coord: { lat, lon }
+    coord: { lat, lon },
   } = weather;
   const { list } = forecast;
   return {
@@ -21,10 +21,10 @@ const transformData = data => {
       description,
       icon,
       wiSpeed: speed,
-      dt: timeFormat(dt)
+      dt: timeFormat(dt),
     },
     forecast: {
-      list: getMaxMinByDate(list)
+      list: getMaxMinByDate(list),
     },
     system: {
       country,
@@ -32,13 +32,13 @@ const transformData = data => {
       sunHours: {
         sunrise: timeFormat(sunrise),
         sunset: timeFormat(sunset),
-        sunHours: sunHours(sunset - sunrise)
+        sunHours: sunHours(sunset - sunrise),
       },
       geo: {
         lat,
-        lon
-      }
-    }
+        lon,
+      },
+    },
   };
 };
 

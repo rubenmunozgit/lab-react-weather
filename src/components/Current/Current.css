@@ -5,7 +5,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 0.5fr 2fr 1fr;
-  grid-template-areas: "County-City County-City" "Weather Weather" "Details Details";
+  grid-template-areas: 'County-City County-City' 'Weather Weather' 'Details Details';
   grid-area: Current;
   background-color: var(--color6);
   min-width: 300px;
@@ -25,7 +25,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 3fr;
-  grid-template-areas: "Temp Icon";
+  grid-template-areas: 'Temp Icon';
   grid-area: Weather;
 }
 
@@ -56,7 +56,9 @@
 .Icon_Image {
   background: var(--color1);
   border-radius: 20px;
-  box-shadow: -10px -4px 28px var(--color1), 10px 4px 28px var(--color1);
+  box-shadow:
+    -10px -4px 28px var(--color1),
+    10px 4px 28px var(--color1);
 }
 
 .Description {
@@ -72,7 +74,7 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-rows: 0.5fr 0.5fr;
-  grid-template-areas: "Humidity Wind" "Update SunHours";
+  grid-template-areas: 'Humidity Wind' 'Update SunHours';
   grid-area: Details;
   justify-items: center;
   align-items: center;

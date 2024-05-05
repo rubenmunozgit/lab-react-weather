@@ -1,22 +1,24 @@
-import "./Toggle.css";
-import React from "react";
+import React, { useContext } from 'react';
+import { SettingsContext } from '../../contexts/SettingsContext';
+import { units } from '../../utils/units';
 
-const Switch = ({ isF, handleToggle }) => {
+const Switch = () => {
+  const { isC, toggleUnit } = useContext(SettingsContext);
   return (
-      <>
-          <span className="mesureLabel">C</span>
-          <input
-              checked={isF}
-              onChange={handleToggle}
-              className="react-switch-checkbox"
-              id={`react-switch-new`}
-              type="checkbox"
-          />
-          <label className="react-switch-label" htmlFor={`react-switch-new`}>
-              <span className={`react-switch-button`}/>
-          </label>
-          <span className="mesureLabel">F</span>
-      </>
+    <>
+      <span className="align-top text-white py-1">{units.metric.temp}</span>
+      <div className="form-check form-switch pt-1">
+        <input
+          className="form-check-input"
+          type="checkbox"
+          role="switch"
+          id="switchUnits"
+          checked={!isC}
+          onChange={toggleUnit}
+        />
+      </div>
+      <span className="align-top text-white py-1">{units.imperial.temp}</span>
+    </>
   );
 };
 
