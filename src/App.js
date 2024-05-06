@@ -51,7 +51,7 @@ const App = () => {
 
   if (loading) {
     return (
-      <div className="container-md-fuild bg-success">
+      <div className="container-md-fuild bg-info">
         <div className="row row-cols-md-3">
           <div className="col-md-8">
             <Loading />
@@ -61,7 +61,7 @@ const App = () => {
     );
   }
   return (
-    <div className="container-md-fuild bg-success">
+    <div className="container-md-fuild bg-info">
       <div className="row row-cols-md-3">
         <div className="col-md-8">
           <Nav />
