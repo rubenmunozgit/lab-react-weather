@@ -14,7 +14,7 @@ const transformData = (data) => {
   } = weather;
   const { list } = forecast;
   return {
-    currentWeather: {
+    current: {
       temperature: temp.toFixed(1),
       feels_like: feels_like.toFixed(1),
       humidity,

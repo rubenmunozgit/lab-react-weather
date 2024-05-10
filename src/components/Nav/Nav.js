@@ -6,7 +6,7 @@ const Nav = () => {
   const { collapse, toggleNav } = useNavbarToggle();
   const collapseClass = collapse ? 'show' : '';
   return (
-    <nav class="navbar navbar-light navbar-expand-lg bg-success bg-gradient">
+    <nav className="navbar navbar-light navbar-expand-lg bg-success bg-gradient">
       <div className="container-fluid">
         <button
           className="navbar-toggler"
