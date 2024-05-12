@@ -4,9 +4,8 @@ import { LanguageContext } from '../../contexts/LanguageContext';
 const Loading = () => {
   const { translatedText } = useContext(LanguageContext);
   return (
-    <div className="text-center bg-white vh-100">
-      <h1>{translatedText.loading_Weather_Info_title}</h1>
-      <p>{translatedText.loading_Weather_Info_p}</p>
+    <div className="text-center bg-white">
+      <h1>{translatedText.loading_browser_access_loc}</h1>
     </div>
   );
 };

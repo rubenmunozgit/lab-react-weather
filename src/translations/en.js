@@ -1,6 +1,6 @@
 export default {
-  loading_Weather_Info_title: 'Loading Weather Information',
-  loading_Weather_Info_p: 'Please allow access to the browser location',
+  loading_browser_access_loc: 'Accessing to your Browser Location...',
+  loading_browser_loc_allow: 'Please allow access to the browser location',
   feels_like: 'feels like',
   humidity: 'Humity',
   wind: 'Wind',
