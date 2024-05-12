@@ -2,10 +2,12 @@ import { useContext, useEffect, useState } from 'react';
 import fetchWeatherData from '../servicesClients/getWeatherData';
 import { LanguageContext } from '../contexts/LanguageContext';
 import { SettingsContext } from '../contexts/SettingsContext';
+import { CoordContext } from '../contexts/CoordContext';
 
 const useFetchWeather = () => {
   const { lang } = useContext(LanguageContext);
   const { unit } = useContext(SettingsContext);
+  const { coords } = useContext(CoordContext);
 
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -17,7 +19,7 @@ const useFetchWeather = () => {
       setIsLoading(true);
       setError(null);
       try {
-        const weatherData = await fetchWeatherData(unit, lang);
+        const weatherData = await fetchWeatherData(coords, lang, unit);
         setData(weatherData);
         setIsLoading(false);
       } catch (error) {
@@ -26,7 +28,7 @@ const useFetchWeather = () => {
       }
     };
     asyncHandler();
-  }, [unit, refresh]);
+  }, [unit, refresh, coords]);
 
   return {
     isLoading,

@@ -1,6 +1,7 @@
 export default {
-  loading_Weather_Info_title: 'Cargando informacion del Tiempo',
-  loading_Weather_Info_p:
+  loading_browser_location_accessed:
+    'Accesidendo a la ubicacion de su navegador...',
+  loading_browser_allow_location:
     'Por favor, permita el acceso de la ubicacion en el navegador',
   feels_like: 'sensacion de',
   humidity: 'Humedad',
