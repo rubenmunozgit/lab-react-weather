@@ -1,6 +1,7 @@
 export default {
-  loading_browser_access_loc: 'Accesidendo a la ubicacion de su navegador...',
-  loading_browser_loc_allow:
+  loading_browser_location_accessed:
+    'Accesidendo a la ubicacion de su navegador...',
+  loading_browser_allow_location:
     'Por favor, permita el acceso de la ubicacion en el navegador',
   feels_like: 'sensacion de',
   humidity: 'Humedad',

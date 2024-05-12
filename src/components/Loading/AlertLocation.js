@@ -6,7 +6,7 @@ const AlertLocation = () => {
   return (
     <div className="alert alert-danger" role="alert">
       <h2 className="text-center">
-        {translatedText.loading_browser_loc_allow}
+        {translatedText.loading_browser_allow_location}
       </h2>
     </div>
   );
