@@ -54,9 +54,7 @@ const Current = (props) => {
         </div>
 
         <div className="Icon">
-          <div className="Icon_Image">
-            <i className={`owf owf-${icon} owf-8x`} />
-          </div>
+          <i className={`owf owf-${icon} owf-8x`} />
           <div className="Description">{description}</div>
         </div>
       </div>
