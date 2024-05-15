@@ -53,13 +53,6 @@
   justify-content: space-evenly;
   align-items: center;
 }
-.Icon_Image {
-  background: var(--color1);
-  border-radius: 20px;
-  box-shadow:
-    -10px -4px 28px var(--color1),
-    10px 4px 28px var(--color1);
-}
 
 .Description {
   display: flex;
