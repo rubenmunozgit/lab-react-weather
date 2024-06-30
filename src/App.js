@@ -10,8 +10,8 @@ const App = () => {
   const { error, coords } = useContext(CoordContext);
 
   return (
-    <div className="container-md-fuild">
-      <div className="row row-cols-md-3 vh-100">
+    <div className="container-md-fluid">
+      <div className="row justify-content-center">
         <div className="col-md-8">
           {error && <AlertLocation />}
           {!coords && !error && <AccessingLocation />}

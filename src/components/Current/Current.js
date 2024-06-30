@@ -25,10 +25,11 @@ const Current = (props) => {
   const sunHoursperDay = sunHours.sunHours;
 
   return (
-    <div className="Current">
-      <div className="Country_City">
-        <h2>{`${city}, ${country}`}</h2>
-        <button className="btn pt-0 pb-2" onClick={refresh}>
+    <div className="card m-2">
+      <div className="card-header text-bg-secondary d-flex justify-content-center align-items-center text-white">
+        <h2 className="px-2">{city}</h2>
+        <h5 className="pe-2 text-body-secondary">{country}</h5>
+        <div className="pt-0 pb-2" onClick={refresh}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             width="16"
@@ -43,42 +44,43 @@ const Current = (props) => {
               d="M8 3c-1.552 0-2.94.707-3.857 1.818a.5.5 0 1 1-.771-.636A6.002 6.002 0 0 1 13.917 7H12.9A5 5 0 0 0 8 3M3.1 9a5.002 5.002 0 0 0 8.757 2.182.5.5 0 1 1 .771.636A6.002 6.002 0 0 1 2.083 9z"
             />
           </svg>
-        </button>
-      </div>
-      <div className="Weather">
-        <div className="Temp">
-          <div className="Temp__Current">{temperature}º</div>
-          <div className="Temp__Feels">
-            {translatedText.feels_like}: {feels_like}º
-          </div>
-        </div>
-
-        <div className="Icon">
-          <i className={`owf owf-${icon} owf-8x`} />
-          <div className="Description">{description}</div>
         </div>
       </div>
-      <div className="Details">
-        <div className="Humidity">
-          {translatedText.humidity}: {humidity}%
-        </div>
-        <div className="Wind">
-          {translatedText.wind}: {wiSpeed} {windMetrics}
-        </div>
-        <div className="Update">
-          {translatedText.updated}: {dt}
-        </div>
-        <div className="SunHours">
-          <div className="extra__sun">
-            <div className="extra__sunrise">
-              {translatedText.sunrise}: {sunHours.sunrise}
+      <div className="m-2 d-flex">
+        <div className="col-6">
+          <div className="d-flex flex-column align-items-center">
+            <div className="fw-bold fs-1">{temperature}</div>
+            <div className="text-body-secondary">
+              {translatedText.feels_like}: {feels_like}
             </div>
-            <div className="extra__sunset">
-              {translatedText.sunset}: {sunHours.sunset}
+            <div className="d-flex flex-column flex-sm-row flex-md-column flex-lg-row justify-content-center align-items-center">
+              <span className="align-middle p-0 pe-2 fw-normal">
+                {translatedText.humidity}: {humidity}%
+              </span>
+              <span className="align-middle p-0 fw-normal">
+                {translatedText.wind}: {wiSpeed} {windMetrics}
+              </span>
             </div>
           </div>
-          <div>{stringInject(translatedText.sunHours, [sunHoursperDay])}</div>
         </div>
+        <div className="col-6">
+          <div className="d-flex flex-column align-items-center">
+            <i className={`owf owf-${icon} owf-5x`} />
+            <div className="text-body-secondary">{description}</div>
+            <div className="d-flex flex-column flex-sm-row flex-md-column flex-lg-row justify-content-center align-items-center">
+              <span className="align-middle p-0 pe-2 fw-normal">
+                {translatedText.sunrise}: {sunHours.sunrise}
+              </span>
+              <span className="align-middle p-0 pe-2 fw-normal">
+                {translatedText.sunset}: {sunHours.sunset}
+              </span>
+            </div>
+            <div>{stringInject(translatedText.sunHours, [sunHoursperDay])}</div>
+          </div>
+        </div>
+      </div>
+      <div className="card-footer">
+        {translatedText.updated}: {dt}
       </div>
     </div>
   );
