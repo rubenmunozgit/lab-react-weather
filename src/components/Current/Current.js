@@ -1,7 +1,6 @@
 import React, { useContext } from 'react';
 import stringInject from 'stringinject';
 import { LanguageContext } from '../../contexts/LanguageContext';
-import './Current.css';
 import { units } from '../../utils/units';
 import { SettingsContext } from '../../contexts/SettingsContext';
 
