@@ -1,44 +1,40 @@
 import React, { useContext } from 'react';
-import { LanguageContext } from '../../contexts/LanguageContext';
 
 const Loading = () => {
-  const { translatedText } = useContext(LanguageContext);
   return (
-    <div className="Current">
-      <div className="Country_City placeholder-glow">
-        <span className="placeholder bg-info w-75 me-2"></span>
-        <button className="btn placeholder bg-info pt-0 pb-2"></button>
-      </div>
-      <div className="Weather">
-        <div className="Temp">
-          <div className="Temp__Current m-2 placeholder-glow w-75">
-            <span className="placeholder bg-info w-75"></span>
+      <div className="card m-2">
+        <h2 className="card-header text-bg-secondary d-flex justify-content-center align-items-center placeholder-glow">
+            <span className="placeholder col-6"></span>
+        </h2>
+        <div className="m-2 d-flex" style={{ height: '10em' }}>
+          <div className="col-6">
+            <div className="d-flex flex-column align-items-center placeholder-glow">
+                <span className="placeholder bg-info w-25 mb-2">&nbsp;&nbsp;&nbsp;</span>
+                <span className="placeholder bg-info w-50 mb-2"></span>
+              <div
+                className="d-flex flex-column flex-sm-row flex-md-column flex-lg-row justify-content-center align-items-center placeholder-glow w-100">
+                  <span className="placeholder bg-info w-75 mb-2"></span>
+                  <span className="placeholder bg-info w-75 mb-2"></span>
+              </div>
+            </div>
           </div>
-          <div className="Temp__Feels m-2 placeholder-glow w-75">
-            <span className="placeholder bg-info w-50"></span>
+          <div className="col-6">
+            <div className="d-flex flex-column align-items-center placeholder-glow">
+              <span className="placeholder bg-info w-25 mb-2">&nbsp;&nbsp;&nbsp;</span>
+              <span className="placeholder bg-info w-50 mb-2"></span>
+              <div
+                className="d-flex flex-column flex-sm-row flex-md-column flex-lg-row justify-content-center align-items-center placeholder-glow w-100">
+                <span className="placeholder bg-info w-75 mb-2"></span>
+                <span className="placeholder bg-info w-75 mb-2"></span>
+                <span className="placeholder bg-info w-75 mb-2"></span>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="Icon">
-          <div className="placeholder-glow w-75">
-            <span
-              className="placeholder bg-info w-75 m-2"
-              style={{ height: '8em' }}
-            >
-              &nbsp;&nbsp;&nbsp;
-            </span>
-          </div>
-          <div className="Description placeholder-glow w-75">
-            <span className="placeholder bg-info w-50"></span>
-          </div>
+        <div className="card-footer placeholder-glow">
+          <span className="placeholder col-6"></span>
         </div>
       </div>
-      <div className="Details placeholder-glow">
-        <div className="placeholder bg-info w-75"></div>
-        <div className="placeholder bg-info w-75"></div>
-        <div className="placeholder bg-info w-75"></div>
-        <div className="placeholder bg-info w-75"></div>
-      </div>
-    </div>
   );
 };
 

@@ -7,7 +7,8 @@ import Forecast from '../components/Forecast/Forecast';
 const WeatherApp = () => {
   const { data, error, isLoading, setRefresh } = useFetchWeather();
   return (
-    <div>
+    <>
+      <Nav />
       {error && (
         <div className="alert alert-danger" role="alert">
           <h2 className="text-center">{error.message} </h2>
@@ -16,12 +17,12 @@ const WeatherApp = () => {
       {isLoading && <Loading />}
       {data && (
         <>
-          <Nav />
+
           <Current {...data.current} {...data.system} refresh={setRefresh} />
           <Forecast {...data.forecast} />
         </>
       )}
-    </div>
+    </>
   );
 };
 
