@@ -1,5 +1,5 @@
 import getMaxMinByDate from './maxMinByDate';
-import { timeFormat, sunHours } from './dateFomat';
+import { timeFormat, sunHoursCalculations } from './dateFomat';
 
 const transformData = (data) => {
   const [weather, forecast] = data;
@@ -32,7 +32,7 @@ const transformData = (data) => {
       sunHours: {
         sunrise: timeFormat(sunrise),
         sunset: timeFormat(sunset),
-        sunHours: sunHours(sunset - sunrise),
+        ...sunHoursCalculations(sunrise, sunset),
       },
       geo: {
         lat,

@@ -15,9 +15,22 @@ const timeFormat = (dt) => {
   return date.toLocaleTimeString();
 };
 
-const sunHours = (dt) => {
-  const date = new Date(dt * 1000);
-  return date.getHours() + ':' + date.getMinutes() + ':' + date.getSeconds();
+const sunHoursCalculations = (sunrise, sunset) => {
+  const differenceInMilliseconds = (sunset - sunrise) * 1000;
+  const sunHoursDiffInHours = (
+    differenceInMilliseconds /
+    (1000 * 60 * 60)
+  ).toFixed(2);
+
+  const diffDate = new Date(differenceInMilliseconds);
+  const sunHoursStr = `${diffDate.getUTCHours()}:${diffDate.getUTCMinutes()}:${diffDate.getUTCSeconds()}`;
+  const sunHoursPct = ((sunHoursDiffInHours / 24) * 100).toFixed(2);
+
+  return {
+    sunHoursStr,
+    sunHoursPct,
+    sunHoursDiffInHours,
+  };
 };
 
-module.exports = { dateFormat, timeFormat, sunHours };
+module.exports = { dateFormat, timeFormat, sunHoursCalculations };
