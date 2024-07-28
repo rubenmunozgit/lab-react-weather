@@ -26,10 +26,10 @@ const Current = (props) => {
 
   return (
     <div className="card m-2">
-      <div className="card-header text-bg-secondary d-flex justify-content-center align-items-center text-white">
-        <h2 className="px-2">{city}</h2>
-        <h5 className="pe-2 text-body-secondary">{country}</h5>
-        <div className="pt-0 pb-2" onClick={refresh}>
+      <div className="card-header text-bg-secondary text-center text-white">
+        <h2 className="d-inline px-2">{city}</h2>
+        <h5 className="d-inline pe-2 text-body-secondary">{country}</h5>
+        <div className="d-inline px-2" onClick={refresh}>
           <SvgRefresh />
         </div>
       </div>
