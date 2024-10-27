@@ -10,4 +10,5 @@ export default {
   sunrise: 'Salida',
   sunset: 'Puesta',
   sunHours: '{0} hrs de sol',
+  forecast: 'Pronostico',
 };

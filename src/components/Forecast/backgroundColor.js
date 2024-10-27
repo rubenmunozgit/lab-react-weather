@@ -1,6 +1,6 @@
 const { units } = require('../../utils/units');
 const bgColors = {
-  burning: 'rgba(245, 120, 65, 1)',
+  burning: 'rgb(241,94,29)',
   verywarm: 'rgba(245, 182, 66, 1)',
   warm: 'rgba(236, 245, 66, 1)',
   normal: 'rgba(66, 245, 72, 1)',
@@ -8,17 +8,17 @@ const bgColors = {
   verycold: 'rgba(66, 239, 245, 1)',
 };
 
-const getMaxTemps = (unit) => ({
-  MAX_VERYWARN: unit === units.metric.text ? 40 : 104,
-  MAX_WARN: unit === units.metric.text ? 30 : 86,
-  MAX_NORMAL: unit === units.metric.text ? 20 : 68,
-  MAX_COLD: unit === units.metric.text ? 10 : 50,
-  MAX_VERYCOLD: unit === units.metric.text ? 0 : 32,
+const getMaxTemps = (isC) => ({
+  MAX_VERYWARN: isC ? 40 : 104,
+  MAX_WARN: isC ? 30 : 86,
+  MAX_NORMAL: isC ? 20 : 68,
+  MAX_COLD: isC ? 10 : 50,
+  MAX_VERYCOLD: isC ? 0 : 32,
 });
 
-const getLinearGradient = (temp, metrics) => {
+const getLinearGradient = (temp, isC) => {
   const { MAX_VERYWARN, MAX_WARN, MAX_NORMAL, MAX_COLD, MAX_VERYCOLD } =
-    getMaxTemps(metrics);
+    getMaxTemps(isC);
 
   if (temp >= MAX_VERYWARN) {
     return `linear-gradient(90deg, ${bgColors.verycold} 10%, ${bgColors.cold} 30%, ${bgColors.normal} 50%, ${bgColors.warm} 70%, ${bgColors.verywarm} 80%, ${bgColors.burning} 100%`;

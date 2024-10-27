@@ -8,4 +8,5 @@ export default {
   sunrise: 'Sunrise',
   sunset: 'Sunset',
   sunHours: '{0} hr of sun',
+  forecast: 'Forecast',
 };

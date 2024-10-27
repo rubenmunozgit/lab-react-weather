@@ -8,46 +8,19 @@ import 'moment/locale/el';
 import 'moment/locale/pt';
 import 'moment/locale/ru';
 import { LanguageContext } from '../../contexts/LanguageContext';
-import './Forecast.css';
-import { getLinearGradient } from './backgroundColor';
-
-const renderForecastDay = (list, unit) => {
-  const max = list
-    .map((day) => day.max)
-    .reduce((a, b) => {
-      return Math.max(a, b);
-    });
-  return list.map((day) => {
-    const percent = (day.max / max) * 80;
-
-    return (
-      <div key={day.date} className="rowDay">
-        <h6>{moment(day.date).format('ddd, Do')}</h6>
-        <div className="dayForecast">
-          <span className="min">{day.min}</span>
-          <span
-            className="max"
-            style={{
-              width: `${percent}%`,
-              background: getLinearGradient(day.max, unit),
-            }}
-          >
-            {day.max}
-          </span>
-        </div>
-      </div>
-    );
-  });
-};
+import { SettingsContext } from '../../contexts/SettingsContext';
+import ForecastByDay from './ForecastByDay';
 
 const Forecast = (props) => {
-  const { list, settings } = props;
+  const { list } = props;
   const { lang } = useContext(LanguageContext);
-  const { unit } = useContext(LanguageContext);
+  const { isC } = useContext(SettingsContext);
   moment.locale(lang);
   return (
-    <div className="Forecast vh-100">
-      <div className="graphic">{renderForecastDay(list, unit)}</div>
+    <div className="card m-2">
+      <div className="card-body">
+        <ForecastByDay {...{ list, isC }} />
+      </div>
     </div>
   );
 };

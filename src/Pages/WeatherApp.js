@@ -17,7 +17,6 @@ const WeatherApp = () => {
       {isLoading && <Loading />}
       {data && (
         <>
-
           <Current {...data.current} {...data.system} refresh={setRefresh} />
           <Forecast {...data.forecast} />
         </>
