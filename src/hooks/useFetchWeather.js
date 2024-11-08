@@ -1,8 +1,8 @@
-import { useContext, useEffect, useState } from 'react';
-import fetchWeatherData from '../servicesClients/getWeatherData';
+import { useCallback, useContext, useEffect, useState } from 'react';
 import { LanguageContext } from '../contexts/LanguageContext';
 import { SettingsContext } from '../contexts/SettingsContext';
 import { CoordContext } from '../contexts/CoordContext';
+import weatherWithCache from '../utils/cache';
 
 const useFetchWeather = () => {
   const { lang } = useContext(LanguageContext);
@@ -12,29 +12,31 @@ const useFetchWeather = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
-  const [refresh, setRefresh] = useState(false);
+
+  const handleFetchWeather = useCallback(async () => {
+    setIsLoading(true);
+    setError(null);
+    setData(null);
+    try {
+      const weatherData = await weatherWithCache(coords, lang, unit);
+      setData(weatherData);
+      setIsLoading(false);
+    } catch (error) {
+      console.log(`there was an error: ${error.code} ; ${error.message}`);
+      setError(error);
+      setData(null);
+    }
+  }, [coords, lang, unit]);
 
   useEffect(() => {
-    const asyncHandler = async () => {
-      setIsLoading(true);
-      setError(null);
-      try {
-        const weatherData = await fetchWeatherData(coords, lang, unit);
-        setData(weatherData);
-        setIsLoading(false);
-      } catch (error) {
-        console.log(`there was an error: ${error.code} ; ${error.message}`);
-        setError(error);
-      }
-    };
-    asyncHandler();
-  }, [unit, refresh, coords]);
+    handleFetchWeather();
+  }, [coords, lang, unit]);
 
   return {
     isLoading,
     data,
     error,
-    setRefresh,
+    handleFetchWeather,
   };
 };
 

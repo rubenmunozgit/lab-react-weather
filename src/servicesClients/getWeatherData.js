@@ -1,4 +1,3 @@
-import getCoords from './coordenates';
 import getUrls from '../utils/getUrls';
 import callApi from './apiCall';
 import transformData from '../mutations/weatherData';
