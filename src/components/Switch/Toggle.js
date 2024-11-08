@@ -6,7 +6,9 @@ const Switch = () => {
   const { isC, toggleUnit } = useContext(SettingsContext);
   return (
     <>
-      <span className="align-top text-white py-1">{units.metric.temp}</span>
+      <span className="align-top text-white py-1 me-2">
+        {units.metric.temp}
+      </span>
       <div className="form-check form-switch pt-1">
         <input
           className="form-check-input"

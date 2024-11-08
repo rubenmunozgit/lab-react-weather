@@ -5,7 +5,7 @@ import Current from '../components/Current/Current';
 import Forecast from '../components/Forecast/Forecast';
 
 const WeatherApp = () => {
-  const { data, error, isLoading, setRefresh } = useFetchWeather();
+  const { data, error, isLoading, handleFetchWeather } = useFetchWeather();
   return (
     <>
       <Nav />
@@ -17,7 +17,11 @@ const WeatherApp = () => {
       {isLoading && <Loading />}
       {data && (
         <>
-          <Current {...data.current} {...data.system} refresh={setRefresh} />
+          <Current
+            {...data.current}
+            {...data.system}
+            refresh={handleFetchWeather}
+          />
           <Forecast {...data.forecast} />
         </>
       )}
