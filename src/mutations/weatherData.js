@@ -5,7 +5,7 @@ const transformData = (data) => {
   const [weather, forecast] = data;
   const {
     main: { temp, feels_like, humidity },
-    weather: [{ description, id: icon }],
+    weather: [{ description, icon }],
     wind: { speed },
     sys: { country, sunrise, sunset },
     dt,
