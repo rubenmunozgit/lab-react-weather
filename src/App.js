@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import './styles.css';
 
 import AccessingLocation from './components/Loading/AccessingLocation';
 import AlertLocation from './components/Loading/AlertLocation';
