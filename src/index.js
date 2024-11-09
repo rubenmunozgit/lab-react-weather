@@ -4,8 +4,6 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import { SettingsProvider } from './contexts/SettingsContext';
 import { CoordProvider } from './contexts/CoordContext';
 
-import 'bootstrap/dist/css/bootstrap.css';
-
 const container = document.getElementById('root');
 const root = createRoot(container);
 
