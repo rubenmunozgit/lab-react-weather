@@ -15,7 +15,7 @@ const ForecastByDay = ({ list, isC }) => {
     return (
       <div key={day.date} className="mb-2">
         <h5>
-          <small class="text-body-secondary">
+          <small className="text-body-secondary">
             {moment(day.date).format('ddd, Do')}
           </small>
         </h5>
