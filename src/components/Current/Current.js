@@ -2,8 +2,9 @@ import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { units } from '../../utils/units';
 import { SettingsContext } from '../../contexts/SettingsContext';
-import { SvgRefresh } from '../svgs/svg-refresh';
-import { SvgSunHours } from '../svgs/svg-sun-hours';
+import { SvgRefresh } from '../svgs/SvgRefresh';
+import { SvgSunHours } from '../svgs/SvgSunHours';
+import WeatherSvg from '../svgs/WeatherSvg';
 
 const Current = (props) => {
   const { translatedText } = useContext(LanguageContext);
@@ -51,7 +52,7 @@ const Current = (props) => {
         </div>
         <div className="col-6">
           <div className="d-flex flex-column align-items-center">
-            <i className={`owi owi-${icon} owi-5x`} />
+            <WeatherSvg icon={icon} />
             <div className="text-body-secondary">{description}</div>
             <div className="d-flex flex-column flex-sm-row flex-md-column flex-lg-row justify-content-center align-items-center">
               <span className="align-middle p-0 pe-2 fw-normal">
