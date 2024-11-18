@@ -1,13 +1,49 @@
 {
   "files": {
     "main.css": "/lab-react-weather/static/css/main.fafc8537.css",
-    "main.js": "/lab-react-weather/static/js/main.af1b9412.js",
+    "main.js": "/lab-react-weather/static/js/main.94394c1b.js",
+    "static/js/652.352ca229.chunk.js": "/lab-react-weather/static/js/652.352ca229.chunk.js",
+    "static/js/734.e61c6140.chunk.js": "/lab-react-weather/static/js/734.e61c6140.chunk.js",
+    "static/js/861.9614dc41.chunk.js": "/lab-react-weather/static/js/861.9614dc41.chunk.js",
+    "static/js/663.980bb885.chunk.js": "/lab-react-weather/static/js/663.980bb885.chunk.js",
+    "static/js/850.759cf16f.chunk.js": "/lab-react-weather/static/js/850.759cf16f.chunk.js",
+    "static/js/141.acc7cd27.chunk.js": "/lab-react-weather/static/js/141.acc7cd27.chunk.js",
+    "static/js/824.ed193710.chunk.js": "/lab-react-weather/static/js/824.ed193710.chunk.js",
+    "static/js/910.8987a13e.chunk.js": "/lab-react-weather/static/js/910.8987a13e.chunk.js",
+    "static/js/500.b199396c.chunk.js": "/lab-react-weather/static/js/500.b199396c.chunk.js",
+    "static/js/143.6f2904b1.chunk.js": "/lab-react-weather/static/js/143.6f2904b1.chunk.js",
+    "static/js/189.2570eb86.chunk.js": "/lab-react-weather/static/js/189.2570eb86.chunk.js",
+    "static/js/666.0e95c127.chunk.js": "/lab-react-weather/static/js/666.0e95c127.chunk.js",
+    "static/media/13.svg": "/lab-react-weather/static/media/13.2d88b4d1e3794aaf79ac2ffdcd313e16.svg",
+    "static/media/10d.svg": "/lab-react-weather/static/media/10d.910ba5934282b08c585eccb6f81d5d3b.svg",
+    "static/media/10n.svg": "/lab-react-weather/static/media/10n.eb83f8d35737fba32b953c0d18a2c23c.svg",
+    "static/media/09.svg": "/lab-react-weather/static/media/09.fc353520302cc2b52c119305d1d1b8ea.svg",
+    "static/media/11.svg": "/lab-react-weather/static/media/11.354bef84df7fd22048084cfcf9b7cc67.svg",
+    "static/media/50.svg": "/lab-react-weather/static/media/50.d628ea7d24f683ac0fd570d3c7619231.svg",
+    "static/media/02d.svg": "/lab-react-weather/static/media/02d.858d91f9afef1d438452952e85b6d254.svg",
+    "static/media/02n.svg": "/lab-react-weather/static/media/02n.8d414bd551af4ff87d5948fa19795443.svg",
+    "static/media/04.svg": "/lab-react-weather/static/media/04.151a4232a15f938964a81902b2cd96c0.svg",
+    "static/media/03.svg": "/lab-react-weather/static/media/03.895dd65620ddc8914240d0ac4fee0a27.svg",
+    "static/media/01d.svg": "/lab-react-weather/static/media/01d.be1ea86ed138d40c6e9da88c5f37efb8.svg",
+    "static/media/01n.svg": "/lab-react-weather/static/media/01n.db2fb8a02e198dfa2be6f8b3652cdd17.svg",
     "index.html": "/lab-react-weather/index.html",
     "main.fafc8537.css.map": "/lab-react-weather/static/css/main.fafc8537.css.map",
-    "main.af1b9412.js.map": "/lab-react-weather/static/js/main.af1b9412.js.map"
+    "main.94394c1b.js.map": "/lab-react-weather/static/js/main.94394c1b.js.map",
+    "652.352ca229.chunk.js.map": "/lab-react-weather/static/js/652.352ca229.chunk.js.map",
+    "734.e61c6140.chunk.js.map": "/lab-react-weather/static/js/734.e61c6140.chunk.js.map",
+    "861.9614dc41.chunk.js.map": "/lab-react-weather/static/js/861.9614dc41.chunk.js.map",
+    "663.980bb885.chunk.js.map": "/lab-react-weather/static/js/663.980bb885.chunk.js.map",
+    "850.759cf16f.chunk.js.map": "/lab-react-weather/static/js/850.759cf16f.chunk.js.map",
+    "141.acc7cd27.chunk.js.map": "/lab-react-weather/static/js/141.acc7cd27.chunk.js.map",
+    "824.ed193710.chunk.js.map": "/lab-react-weather/static/js/824.ed193710.chunk.js.map",
+    "910.8987a13e.chunk.js.map": "/lab-react-weather/static/js/910.8987a13e.chunk.js.map",
+    "500.b199396c.chunk.js.map": "/lab-react-weather/static/js/500.b199396c.chunk.js.map",
+    "143.6f2904b1.chunk.js.map": "/lab-react-weather/static/js/143.6f2904b1.chunk.js.map",
+    "189.2570eb86.chunk.js.map": "/lab-react-weather/static/js/189.2570eb86.chunk.js.map",
+    "666.0e95c127.chunk.js.map": "/lab-react-weather/static/js/666.0e95c127.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.fafc8537.css",
-    "static/js/main.af1b9412.js"
+    "static/js/main.94394c1b.js"
   ]
 }
