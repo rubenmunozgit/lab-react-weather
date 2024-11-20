@@ -67,7 +67,7 @@ const Current = (props) => {
         </div>
       </div>
       <div className="card-footer">
-        {translatedText.updated}: {dt}
+        {translatedText.updated.replace('{0}', dt)}
       </div>
     </div>
   );

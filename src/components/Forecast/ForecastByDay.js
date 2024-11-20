@@ -1,6 +1,6 @@
 import { LanguageContext } from '../../contexts/LanguageContext';
 import React, { useContext } from 'react';
-import moment from 'moment/moment';
+import dayjs from 'dayjs';
 import ProgressDayMinMax from './ProgressDayMinMax';
 
 const ForecastByDay = ({ list, isC }) => {
@@ -16,7 +16,7 @@ const ForecastByDay = ({ list, isC }) => {
       <div key={day.date} className="mb-2">
         <h5>
           <small className="text-body-secondary">
-            {moment(day.date).format('ddd, Do')}
+            {dayjs(day.date).format('ddd, DD')}
           </small>
         </h5>
         <ProgressDayMinMax

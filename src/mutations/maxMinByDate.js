@@ -1,4 +1,4 @@
-import { dateFormat } from './dateFomat';
+import { dateFormat } from './datesFormat';
 
 const getMaxMinByDate = (list) => {
   const aggregateByDate = list.reduce((groups, wPoint) => {

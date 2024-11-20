@@ -6,7 +6,7 @@ export default {
   feels_like: 'sensacion de',
   humidity: 'Humedad',
   wind: 'Viento',
-  updated: 'Actualizado a las',
+  updated: 'Actualizado {0}',
   sunrise: 'Salida',
   sunset: 'Puesta',
   sunHours: '{0} hrs de sol',
