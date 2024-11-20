@@ -4,7 +4,7 @@ export default {
   feels_like: 'feels like',
   humidity: 'Humity',
   wind: 'Wind',
-  updated: 'Updated at',
+  updated: 'Updated {0}',
   sunrise: 'Sunrise',
   sunset: 'Sunset',
   sunHours: '{0} hr of sun',
