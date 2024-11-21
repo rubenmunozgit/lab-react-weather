@@ -1,0 +1,2 @@
+(self.webpackChunklab_react_weather=self.webpackChunklab_react_weather||[]).push([[513],{513:function(e){e.exports=function(){"use strict";return{name:"en",weekdays:"Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),months:"January_February_March_April_May_June_July_August_September_October_November_December".split("_"),ordinal:function(e){var a=["th","st","nd","rd"],r=e%100;return"["+e+(a[(r-20)%10]||a[r]||a[0])+"]"}}}()}}]);
+//# sourceMappingURL=513.b78c9313.chunk.js.map
