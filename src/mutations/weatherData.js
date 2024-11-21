@@ -5,7 +5,7 @@ import {
   updatedFromNow,
 } from './datesFormat';
 
-const transformData = (data, lang) => {
+const transformData = (data) => {
   const [weather, forecast] = data;
   const {
     main: { temp, feels_like, humidity },
@@ -25,7 +25,7 @@ const transformData = (data, lang) => {
       description,
       icon,
       wiSpeed: speed,
-      dt: updatedFromNow(dt, lang),
+      dt: updatedFromNow(dt),
     },
     forecast: {
       list: getMaxMinByDate(list),

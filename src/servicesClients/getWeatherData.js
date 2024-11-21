@@ -8,7 +8,7 @@ const fetchWeatherData = async (coords, lang, metrics) => {
     callApi(openWeatherUrls.weatherUrl),
     callApi(openWeatherUrls.forecastUrl),
   ]);
-  return transformData(weather, lang);
+  return transformData(weather);
 };
 
 export default fetchWeatherData;
