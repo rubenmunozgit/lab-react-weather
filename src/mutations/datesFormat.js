@@ -1,6 +1,5 @@
 import dayjs from 'dayjs';
 import relativeTime from 'dayjs/plugin/relativeTime';
-import { translations } from '../translations';
 dayjs.extend(relativeTime);
 
 const dateFormat = (date) => {
@@ -27,8 +26,8 @@ const sunHoursCalculations = (sunrise, sunset) => {
   };
 };
 
-const updatedFromNow = (dt, lang) => {
-  return dayjs().locale(lang).to(dayjs.unix(dt));
+const updatedFromNow = (dt) => {
+  return dayjs().to(dayjs.unix(dt));
 };
 
 export { dateFormat, timeFormat, sunHoursCalculations, updatedFromNow };
