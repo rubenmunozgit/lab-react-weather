@@ -25,7 +25,7 @@ export const Tooltip = ({ children }) => {
       </div>
       {isVisible && (
         <div
-          className="position-absolute top-0 end-100 bg-light border border-secondary rounded p-2 z-1"
+          className="position-absolute top-100 end-0 bg-light border border-secondary rounded p-2 z-1"
           style={{ minWidth: '-webkit-max-content' }}
         >
           {children}
