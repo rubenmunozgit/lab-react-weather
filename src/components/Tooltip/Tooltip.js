@@ -7,11 +7,11 @@ export const Tooltip = ({ children }) => {
   const { isVisible, onMouseEnter, onMouseLeave } = useTooltipShow();
 
   useEffect(() => {
-    tooltipRef.current.addEventListener('mouseenter', onMouseEnter);
-    tooltipRef.current.addEventListener('mouseleave', onMouseLeave);
+    tooltipRef?.current?.addEventListener('mouseenter', onMouseEnter);
+    tooltipRef?.current?.addEventListener('mouseleave', onMouseLeave);
     return () => {
-      tooltipRef.current.removeEventListener('mouseenter', onMouseEnter);
-      tooltipRef.current.removeEventListener('mouseleave', onMouseLeave);
+      tooltipRef?.current?.removeEventListener('mouseenter', onMouseEnter);
+      tooltipRef?.current?.removeEventListener('mouseleave', onMouseLeave);
     };
   }, [onMouseEnter, onMouseLeave]);
 
@@ -24,7 +24,10 @@ export const Tooltip = ({ children }) => {
         <SvgInfo />
       </div>
       {isVisible && (
-        <div className="position-absolute top-0 end-100 bg-light border border-secondary rounded p-2 z-1">
+        <div
+          className="position-absolute top-0 end-100 bg-light border border-secondary rounded p-2 z-1"
+          style={{ minWidth: '-webkit-max-content' }}
+        >
           {children}
         </div>
       )}
