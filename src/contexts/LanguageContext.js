@@ -7,7 +7,10 @@ const localeDayjs = {
   es: () => import('dayjs/locale/es'),
 };
 
-export const LanguageContext = createContext();
+export const LanguageContext = createContext({
+  lang: 'en',
+  translatedText: translations['en'],
+});
 
 export const LanguageProvider = ({ children }) => {
   const lang = navigator.language ? navigator.language.slice(0, 2) : 'en';

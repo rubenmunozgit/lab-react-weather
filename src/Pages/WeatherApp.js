@@ -1,11 +1,12 @@
-import useFetchWeather from '../hooks/useFetchWeather';
 import Nav from '../components/Nav/Nav';
 import Loading from '../components/Loading/Loading';
 import Current from '../components/Current/Current';
 import Forecast from '../components/Forecast/Forecast';
+import { useContext } from 'react';
+import { WeatherContext } from '../contexts/WeatherContext';
 
 const WeatherApp = () => {
-  const { data, error, isLoading, handleFetchWeather } = useFetchWeather();
+  const { data, error, isLoading } = useContext(WeatherContext);
   return (
     <>
       <Nav />
@@ -17,11 +18,7 @@ const WeatherApp = () => {
       {isLoading && <Loading />}
       {data && (
         <>
-          <Current
-            {...data.current}
-            {...data.system}
-            refresh={handleFetchWeather}
-          />
+          <Current />
           <Forecast {...data.forecast} />
         </>
       )}

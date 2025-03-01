@@ -1,6 +1,6 @@
 export default {
   loading_browser_location_accessed:
-    'Accesidendo a la ubicacion de su navegador...',
+    'Accediendo a la ubicacion de su navegador...',
   loading_browser_allow_location:
     'Por favor, permita el acceso de la ubicacion en el navegador',
   feels_like: 'sensacion de',
@@ -10,5 +10,5 @@ export default {
   sunrise: 'Salida',
   sunset: 'Puesta',
   sunHours: '{0} hrs de sol',
-  forecast: 'Pronostico',
+  forecast: 'Pronóstico',
 };
