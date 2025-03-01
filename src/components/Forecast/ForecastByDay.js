@@ -2,9 +2,17 @@ import { LanguageContext } from '../../contexts/LanguageContext';
 import React, { useContext } from 'react';
 import dayjs from 'dayjs';
 import ProgressDayMinMax from './ProgressDayMinMax';
+import { WeatherContext } from '../../contexts/WeatherContext';
+import { SettingsContext } from '../../contexts/SettingsContext';
 
-const ForecastByDay = ({ list, isC }) => {
+const ForecastByDay = () => {
   const { translatedText } = useContext(LanguageContext);
+  const { isC } = useContext(SettingsContext);
+  const {
+    data: {
+      forecast: { list },
+    },
+  } = useContext(WeatherContext);
 
   const tempMax = list.reduce((acc, day) => {
     return Math.max(acc, day.max);
