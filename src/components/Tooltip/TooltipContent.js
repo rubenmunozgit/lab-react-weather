@@ -4,11 +4,17 @@ import { LanguageContext } from '../../contexts/LanguageContext';
 import { SettingsContext } from '../../contexts/SettingsContext';
 import { units } from '../../utils/units';
 import { InfoItem } from './InfoItem';
+import { WeatherContext } from '../../contexts/WeatherContext';
 
-export const TooltipContent = (props) => {
+export const TooltipContent = () => {
   const { translatedText } = useContext(LanguageContext);
   const { unit } = useContext(SettingsContext);
-  const { humidity, wiSpeed, sunHours } = props;
+  const {
+    data: {
+      current: { humidity, wiSpeed },
+      system: { sunHours },
+    },
+  } = useContext(WeatherContext);
   const windMetrics = units[unit].speed;
 
   const content = [

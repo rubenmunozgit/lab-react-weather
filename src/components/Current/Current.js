@@ -4,26 +4,24 @@ import { SvgRefresh } from '../svgs/SvgRefresh';
 import WeatherSvg from '../svgs/WeatherSvg';
 import { Tooltip } from '../Tooltip/Tooltip';
 import { TooltipContent } from '../Tooltip/TooltipContent';
+import { WeatherContext } from '../../contexts/WeatherContext';
 
 const Current = (props) => {
   const { translatedText } = useContext(LanguageContext);
   const {
-    temperature,
-    feels_like,
-    description,
-    icon,
-    city,
-    country,
-    dt,
-    refresh,
-  } = props;
+    data: {
+      current: { temperature, feels_like, description, icon, dt },
+      system: { city, country },
+    },
+    handleFetchWeather,
+  } = useContext(WeatherContext);
 
   return (
     <div className="card m-2">
       <div className="card-header text-bg-secondary text-center text-white">
         <h2 className="d-inline px-2">{city}</h2>
         <h5 className="d-inline pe-2 text-body-secondary">{country}</h5>
-        <div className="d-inline px-2" onClick={refresh}>
+        <div className="d-inline px-2" onClick={handleFetchWeather}>
           <SvgRefresh />
         </div>
       </div>
@@ -37,7 +35,7 @@ const Current = (props) => {
                 {translatedText.feels_like}: {feels_like}
               </div>
               <Tooltip>
-                <TooltipContent {...props} />
+                <TooltipContent />
               </Tooltip>
             </div>
             <div className="text-body-secondary">{description}</div>

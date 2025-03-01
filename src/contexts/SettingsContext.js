@@ -2,7 +2,11 @@ import { createContext, useState } from 'react';
 import { useToggleUnit } from '../hooks/useToggleUnit';
 import { units } from '../utils/units';
 
-export const SettingsContext = createContext();
+export const SettingsContext = createContext({
+  unit: units.metric.text,
+  isC: true,
+  toggleUnit: () => {},
+});
 
 export const SettingsProvider = ({ children }) => {
   const { unit, toggleUnit } = useToggleUnit();

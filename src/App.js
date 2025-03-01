@@ -4,6 +4,7 @@ import AccessingLocation from './components/Loading/AccessingLocation';
 import AlertLocation from './components/Loading/AlertLocation';
 import WeatherApp from './Pages/WeatherApp';
 import { CoordContext } from './contexts/CoordContext';
+import { WeatherProvider } from './contexts/WeatherContext';
 
 const App = () => {
   const { error, coords } = useContext(CoordContext);
@@ -14,7 +15,11 @@ const App = () => {
         <div className="col-md-8">
           {error && <AlertLocation />}
           {!coords && !error && <AccessingLocation />}
-          {coords && <WeatherApp />}
+          {coords && (
+            <WeatherProvider>
+              <WeatherApp />
+            </WeatherProvider>
+          )}
         </div>
       </div>
     </div>
