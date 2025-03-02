@@ -1,17 +1,18 @@
 import { SvgInfo } from '../svgs/SvgInfo';
-import { useEffect, useRef } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useTooltipShow } from '../../hooks/useTooltipShow';
 
 export const Tooltip = ({ children }) => {
-  const tooltipRef = useRef(null);
+  const tooltipRef = useRef();
   const { isVisible, onMouseEnter, onMouseLeave } = useTooltipShow();
 
   useEffect(() => {
-    tooltipRef?.current?.addEventListener('mouseenter', onMouseEnter);
-    tooltipRef?.current?.addEventListener('mouseleave', onMouseLeave);
+    const element = tooltipRef.current;
+    element?.addEventListener('mouseenter', onMouseEnter);
+    element?.addEventListener('mouseleave', onMouseLeave);
     return () => {
-      tooltipRef?.current?.removeEventListener('mouseenter', onMouseEnter);
-      tooltipRef?.current?.removeEventListener('mouseleave', onMouseLeave);
+      element?.removeEventListener('mouseenter', onMouseEnter);
+      element?.current?.removeEventListener('mouseleave', onMouseLeave);
     };
   }, [onMouseEnter, onMouseLeave]);
 
@@ -23,14 +24,7 @@ export const Tooltip = ({ children }) => {
       <div className="mx-2">
         <SvgInfo />
       </div>
-      {isVisible && (
-        <div
-          className="position-absolute top-100 end-0 bg-light border border-secondary rounded p-2 z-1"
-          style={{ minWidth: '-webkit-max-content' }}
-        >
-          {children}
-        </div>
-      )}
+      {isVisible && children}
     </div>
   );
 };

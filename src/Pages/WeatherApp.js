@@ -19,7 +19,7 @@ const WeatherApp = () => {
       {data && (
         <>
           <Current />
-          <Forecast {...data.forecast} />
+          <Forecast />
         </>
       )}
     </>

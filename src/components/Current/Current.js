@@ -1,12 +1,17 @@
-import React, { useContext } from 'react';
+import React, { lazy, Suspense, useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { SvgRefresh } from '../svgs/SvgRefresh';
 import WeatherSvg from '../svgs/WeatherSvg';
 import { Tooltip } from '../Tooltip/Tooltip';
-import { TooltipContent } from '../Tooltip/TooltipContent';
 import { WeatherContext } from '../../contexts/WeatherContext';
 
-const Current = (props) => {
+const LazyContentInfo = lazy(() =>
+  import('../Tooltip/ContentInfo').then((module) => ({
+    default: module.default,
+  })),
+);
+
+const Current = () => {
   const { translatedText } = useContext(LanguageContext);
   const {
     data: {
@@ -35,7 +40,9 @@ const Current = (props) => {
                 {translatedText.feels_like}: {feels_like}
               </div>
               <Tooltip>
-                <TooltipContent />
+                <Suspense>
+                  <LazyContentInfo />
+                </Suspense>
               </Tooltip>
             </div>
             <div className="text-body-secondary">{description}</div>
