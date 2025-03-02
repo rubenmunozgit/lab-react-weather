@@ -6,7 +6,7 @@ import { units } from '../../utils/units';
 import { InfoItem } from './InfoItem';
 import { WeatherContext } from '../../contexts/WeatherContext';
 
-export const TooltipContent = () => {
+const ContentInfo = () => {
   const { translatedText } = useContext(LanguageContext);
   const { unit } = useContext(SettingsContext);
   const {
@@ -29,18 +29,25 @@ export const TooltipContent = () => {
   ];
 
   return (
-    <div className="d-flex flex-column align-items-center">
-      {content.map((row, rowIdx) => (
-        <div
-          key={rowIdx}
-          className="d-flex justify-content-center align-items-center"
-        >
-          {row.map((column, colIdx) => (
-            <InfoItem key={colIdx} {...column} />
-          ))}
-        </div>
-      ))}
-      <SvgSunHours {...sunHours} />
+    <div
+      className="position-absolute top-100 end-0 bg-light border border-secondary rounded p-2 z-1"
+      style={{ minWidth: '-webkit-max-content' }}
+    >
+      <div className="d-flex flex-column align-items-center">
+        {content.map((row, rowIdx) => (
+          <div
+            key={rowIdx}
+            className="d-flex justify-content-center align-items-center"
+          >
+            {row.map((column, colIdx) => (
+              <InfoItem key={colIdx} {...column} />
+            ))}
+          </div>
+        ))}
+        <SvgSunHours {...sunHours} />
+      </div>
     </div>
   );
 };
+
+export default ContentInfo;
