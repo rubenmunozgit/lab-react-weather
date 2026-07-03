@@ -20,11 +20,12 @@ const useFetchWeather = () => {
     try {
       const weatherData = await weatherWithCache(coords, lang, unit);
       setData(weatherData);
-      setIsLoading(false);
     } catch (error) {
       console.log(`there was an error: ${error.code} ; ${error.message}`);
       setError(error);
       setData(null);
+    } finally {
+      setIsLoading(false);
     }
   }, [coords, lang, unit]);
 
