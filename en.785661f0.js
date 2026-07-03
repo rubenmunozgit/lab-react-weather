@@ -1,2 +1,2 @@
 (0,("u">typeof globalThis?globalThis:"u">typeof self?self:"u">typeof window?window:"u">typeof global?global:{}).parcelRequired347.register)("fuuKe",function(e,r){e.exports,e.exports={name:"en",weekdays:"Sunday_Monday_Tuesday_Wednesday_Thursday_Friday_Saturday".split("_"),months:"January_February_March_April_May_June_July_August_September_October_November_December".split("_"),ordinal:function(e){var r=["th","st","nd","rd"],a=e%100;return"["+e+(r[(a-20)%10]||r[a]||r[0])+"]"}}});
-//# sourceMappingURL=en.4adfd7b5.js.map
+//# sourceMappingURL=en.785661f0.js.map
