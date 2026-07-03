@@ -3,33 +3,25 @@
   "version": "1.0.0",
   "description": "first wearther app created in react",
   "keywords": [],
-  "main": "src/index.js",
   "dependencies": {
     "bootstrap": "^5.3.3",
     "dayjs": "^1.11.13",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "react-scripts": "^5.0.1"
+    "react-dom": "^18.3.1"
   },
   "devDependencies": {
     "gh-pages": "5.0.0",
+    "parcel": "^2.16.4",
     "prettier": "3.2.5",
     "typescript": "3.3.3"
   },
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "parcel public/index.html --port 5000",
+    "build": "parcel build public/index.html --dist-dir build"
   },
-  "browserslist": [
-    ">0.2%",
-    "not dead",
-    "not ie <= 11",
-    "not op_mini all"
-  ],
+  "browserslist": "> 0.5%, last 2 versions, not dead",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/rubenmunozgit/lab-react-weather.git"
@@ -38,6 +30,5 @@
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/rubenmunozgit/lab-react-weather/issues"
-  },
-  "homepage": "https://rubenmunozgit.github.io/lab-react-weather"
+  }
 }
