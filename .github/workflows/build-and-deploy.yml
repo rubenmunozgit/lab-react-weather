@@ -23,7 +23,7 @@ jobs:
           cache: 'npm'           # ✅ FIX: Caches dependencies for speed
 
       - name: Install dependencies
-        run: npm ci
+        run: npm i
 
       - name: Build (Optional)
         run: npm run build       # ⚠️ Ensure you have a build step if required
