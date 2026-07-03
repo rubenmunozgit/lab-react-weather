@@ -17,7 +17,7 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build",
+    "deploy": "gh-pages -d dist",
     "start": "parcel public/index.html --port 5000",
     "build": "parcel build public/index.html --dist-dir build"
   },
