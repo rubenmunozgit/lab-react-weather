@@ -17,9 +17,9 @@
   },
   "scripts": {
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist",
+    "deploy": "gh-pages -d build",
     "start": "parcel public/index.html --port 5000",
-    "build": "rm -rf dist && parcel build public/index.html --dist-dir dist --public-url /lab-react-weather/"
+    "build": "rm -rf build && parcel build public/index.html --dist-dir build --public-url /lab-react-weather/"
   },
   "browserslist": "> 0.5%, last 2 versions, not dead",
   "repository": {
