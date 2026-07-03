@@ -1,33 +1,37 @@
 name: Deploy to gh-pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ['master']
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: 'pages'
   cancel-in-progress: false
 
 jobs:
-  # Build and deploy job
   build_and_deploy:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      - name: Build with npm
+
+      - name: Setup Node.js
         uses: actions/setup-node@v4
-      - run: npm ci
+        with:
+          node-version: '20.x'  # ✅ FIX: Forces stable LTS, avoids Node 22 bug
+          cache: 'npm'           # ✅ FIX: Caches dependencies for speed
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build (Optional)
+        run: npm run build       # ⚠️ Ensure you have a build step if required
+
       - name: Deploy to GitHub Pages
         run: |
           git remote set-url origin https://git:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git
           npm run deploy -- -u "github-actions-bot <support+actions@github.com>"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          REACT_APP_APIKEY: ${{ secrets.REACT_APP_APIKEY }}
+          REACT_APP_APIKEY: ${{ secrets.REACT_APP_APIKEY }}   
