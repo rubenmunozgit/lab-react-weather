@@ -1,9 +1,12 @@
-import { getLinearGradient } from './backgroundColor';
 import React from 'react';
+import { SettingsContext } from '../../contexts/SettingsContext';
+import { getLinearGradient } from './backgroundColor';
 
 const HEIGHT = '40px';
 
 const ProgressDayMinMax = ({ min, max, percent, isC }) => {
+  const { isC } = useContext(SettingsContext);
+
   return (
     <div
       className="progress-stacked"
