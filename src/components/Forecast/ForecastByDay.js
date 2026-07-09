@@ -1,9 +1,18 @@
-import { LanguageContext } from '../../contexts/LanguageContext';
 import React, { useContext } from 'react';
 import dayjs from 'dayjs';
+import { LanguageContext } from '../../contexts/LanguageContext';
 import ProgressDayMinMax from './ProgressDayMinMax';
 import { WeatherContext } from '../../contexts/WeatherContext';
 import { SettingsContext } from '../../contexts/SettingsContext';
+
+const createGetPercent = (min, max) => {
+  const WIDTH = 80;
+  return (value) => {
+    if (min === null || max === null) return 0;
+    if (min === max) return width;
+    return ((value - min) / (max - min)) * WIDTH;
+  };
+};
 
 const ForecastByDay = () => {
   const { translatedText } = useContext(LanguageContext);
@@ -14,36 +23,31 @@ const ForecastByDay = () => {
     },
   } = useContext(WeatherContext);
 
-  const tempMax = list.reduce((acc, day) => {
-    return Math.max(acc, day.max);
-  }, 0);
+  const allTemps = list.flatMap(({ min, max }) => [min, max]);
+  const globalMin = allTemps.length ? Math.min(...allTemps) : null;
+  const globalMax = allTemps.length ? Math.max(...allTemps) : null;
 
-  const renderAllDays = list.map((day) => {
-    const tempRatioOverTempMax = (day.max / tempMax) * 80;
-    return (
-      <div key={day.date} className="mb-2">
-        <h5>
-          <small className="text-body-secondary">
-            {dayjs(day.date).format('ddd, DD')}
-          </small>
-        </h5>
-        <ProgressDayMinMax
-          {...{
-            min: day.min,
-            max: day.max,
-            percent: tempRatioOverTempMax,
-            isC,
-          }}
-        />
-      </div>
-    );
-  });
+  const getPercent = createGetPercent(globalMin, globalMax);
 
   return (
     <>
       <h3>{translatedText.forecast}</h3>
       <div className="d-flex flex-column justify-content-center">
-        {renderAllDays}
+        {list.map(({ date, min, max }) => (
+          <div key={date} className="mb-2">
+            <h5>
+              <small className="text-body-secondary">
+                {dayjs(date).format('ddd, DD')}
+              </small>
+            </h5>
+            <ProgressDayMinMax
+              min={min}
+              max={max}
+              percent={getPercent(max)}
+              isC={isC}
+            />
+          </div>
+        ))}
       </div>
     </>
   );

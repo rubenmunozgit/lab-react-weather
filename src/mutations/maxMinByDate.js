@@ -3,10 +3,14 @@ import { dateFormat } from './datesFormat';
 const getMaxMinByDate = (list) => {
   const aggregateByDate = list.reduce((groups, wPoint) => {
     const date = dateFormat(wPoint.dt_txt.replace(/-/g, '/'));
-    const temp = parseFloat(wPoint.main.temp.toFixed(1));
+    const rawTemp = wPoint?.main?.temp;
+    if (typeof rawTemp !== 'number') return groups;
+    const temp = Number(rawTemp.toFixed(1));
+    
     if (!groups[date]) {
       groups[date] = { date, temps: [] };
     }
+
     groups[date].temps.push(temp);
     return groups;
   }, {});
