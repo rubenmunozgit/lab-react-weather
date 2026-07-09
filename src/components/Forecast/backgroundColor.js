@@ -9,7 +9,7 @@ const bgColors = {
 };
 
 const getMaxTemps = (isC) => ({
-  MAX_VERYWARN: isC ? 40 : 104,
+  MAX_VERYWARM: isC ? 40 : 104,
   MAX_WARN: isC ? 30 : 86,
   MAX_NORMAL: isC ? 20 : 68,
   MAX_COLD: isC ? 10 : 50,
@@ -17,26 +17,26 @@ const getMaxTemps = (isC) => ({
 });
 
 const getLinearGradient = (temp, isC) => {
-  const { MAX_VERYWARN, MAX_WARN, MAX_NORMAL, MAX_COLD, MAX_VERYCOLD } =
+  const { MAX_VERYWARM, MAX_WARN, MAX_NORMAL, MAX_COLD, MAX_VERYCOLD } =
     getMaxTemps(isC);
 
-  if (temp >= MAX_VERYWARN) {
-    return `linear-gradient(90deg, ${bgColors.verycold} 10%, ${bgColors.cold} 30%, ${bgColors.normal} 50%, ${bgColors.warm} 70%, ${bgColors.verywarm} 80%, ${bgColors.burning} 100%`;
+  if (temp >= MAX_VERYWARM) {
+    return `linear-gradient(90deg, ${bgColors.verycold} 10%, ${bgColors.cold} 30%, ${bgColors.normal} 50%, ${bgColors.warm} 70%, ${bgColors.verywarm} 80%, ${bgColors.burning} 100%)`;
   }
-  if (MAX_WARN <= temp && temp < MAX_VERYWARN) {
-    return `linear-gradient(90deg, ${bgColors.verycold} 10%, ${bgColors.cold} 30%, ${bgColors.normal} 50%, ${bgColors.warm} 70%, ${bgColors.verywarm} 100%`;
+  if (MAX_WARN <= temp && temp < MAX_VERYWARM) {
+    return `linear-gradient(90deg, ${bgColors.verycold} 10%, ${bgColors.cold} 30%, ${bgColors.normal} 50%, ${bgColors.warm} 70%, ${bgColors.verywarm} 100%)`;
   }
   if (MAX_NORMAL <= temp && temp < MAX_WARN) {
-    return `linear-gradient(90deg, ${bgColors.verycold} 10%, ${bgColors.cold} 30%, ${bgColors.normal} 50%, ${bgColors.warm} 100%`;
+    return `linear-gradient(90deg, ${bgColors.verycold} 10%, ${bgColors.cold} 30%, ${bgColors.normal} 50%, ${bgColors.warm} 100%)`;
   }
   if (MAX_COLD <= temp && temp < MAX_NORMAL) {
-    return `linear-gradient(90deg, ${bgColors.verycold} 10%, ${bgColors.cold} 30%, ${bgColors.normal} 100%`;
+    return `linear-gradient(90deg, ${bgColors.verycold} 10%, ${bgColors.cold} 30%, ${bgColors.normal} 100%)`;
   }
   if (MAX_VERYCOLD <= temp && temp < MAX_COLD) {
-    return `linear-gradient(90deg, ${bgColors.verycold} 10%, ${bgColors.cold} 100%`;
+    return `linear-gradient(90deg, ${bgColors.verycold} 10%, ${bgColors.cold} 100%)`;
   }
   if (temp < MAX_VERYCOLD) {
-    return `linear-gradient(90deg, ${bgColors.verycold} 0%, ${bgColors.verycold} 100%`;
+    return `linear-gradient(90deg, ${bgColors.verycold} 0%, ${bgColors.verycold} 100%)`;
   }
 };
 
