@@ -3,7 +3,6 @@ import dayjs from 'dayjs';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import ProgressDayMinMax from './ProgressDayMinMax';
 import { WeatherContext } from '../../contexts/WeatherContext';
-import { SettingsContext } from '../../contexts/SettingsContext';
 
 const createGetPercent = (min, max) => {
   const WIDTH = 80;
@@ -16,7 +15,6 @@ const createGetPercent = (min, max) => {
 
 const ForecastByDay = () => {
   const { translatedText } = useContext(LanguageContext);
-  const { isC } = useContext(SettingsContext);
   const {
     data: {
       forecast: { list },
@@ -44,7 +42,6 @@ const ForecastByDay = () => {
               min={min}
               max={max}
               percent={getPercent(max)}
-              isC={isC}
             />
           </div>
         ))}
