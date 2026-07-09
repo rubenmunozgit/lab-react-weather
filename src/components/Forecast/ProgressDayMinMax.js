@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { SettingsContext } from '../../contexts/SettingsContext';
 import { getLinearGradient } from './backgroundColor';
 
 const HEIGHT = '40px';
 
-const ProgressDayMinMax = ({ min, max, percent, isC }) => {
+const ProgressDayMinMax = ({ min, max, percent }) => {
   const { isC } = useContext(SettingsContext);
 
   return (
