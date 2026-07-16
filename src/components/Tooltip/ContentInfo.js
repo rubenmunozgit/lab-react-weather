@@ -1,10 +1,10 @@
-import { SvgSunHours } from '../svgs/SvgSunHours';
 import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { SettingsContext } from '../../contexts/SettingsContext';
+import { WeatherContext } from '../../contexts/WeatherContext';
 import { units } from '../../utils/units';
 import { InfoItem } from './InfoItem';
-import { WeatherContext } from '../../contexts/WeatherContext';
+import { SvgSunHours } from '../svgs/SvgSunHours';
 
 const ContentInfo = () => {
   const { translatedText } = useContext(LanguageContext);
@@ -31,18 +31,18 @@ const ContentInfo = () => {
   return (
     <div
       className="position-absolute top-100 end-0 bg-light border border-secondary rounded p-2 z-1"
-      style={{ minWidth: '-webkit-max-content' }}
+      style={{ minWidth: 'max-content' }}
     >
       <div className="d-flex flex-column align-items-center">
         {content.map((row, rowIdx) => (
-          <div
+          <dl
             key={rowIdx}
-            className="d-flex justify-content-center align-items-center"
+            className="d-flex justify-content-center align-items-center mb-0"
           >
             {row.map((column, colIdx) => (
               <InfoItem key={colIdx} {...column} />
             ))}
-          </div>
+          </dl>
         ))}
         <SvgSunHours {...sunHours} />
       </div>

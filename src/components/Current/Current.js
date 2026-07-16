@@ -2,7 +2,7 @@ import React, { lazy, Suspense, useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { SvgRefresh } from '../svgs/SvgRefresh';
 import WeatherSvg from '../svgs/WeatherSvg';
-import { Tooltip } from '../Tooltip/Tooltip';
+import { Tooltip } from '../Tooltip';
 import { WeatherContext } from '../../contexts/WeatherContext';
 
 const LazyContentInfo = lazy(() =>

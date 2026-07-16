@@ -1,30 +1,29 @@
 import { SvgInfo } from '../svgs/SvgInfo';
-import React, { useEffect, useRef } from 'react';
-import { useTooltipShow } from '../../hooks/useTooltipShow';
+import React, { useId } from 'react';
+import { useTooltipShow } from './useTooltipShow';
 
 export const Tooltip = ({ children }) => {
-  const tooltipRef = useRef();
-  const { isVisible, onMouseEnter, onMouseLeave } = useTooltipShow();
-
-  useEffect(() => {
-    const element = tooltipRef.current;
-    element?.addEventListener('mouseenter', onMouseEnter);
-    element?.addEventListener('mouseleave', onMouseLeave);
-    return () => {
-      element?.removeEventListener('mouseenter', onMouseEnter);
-      element?.current?.removeEventListener('mouseleave', onMouseLeave);
-    };
-  }, [onMouseEnter, onMouseLeave]);
+  const tooltipId = useId();
+  const { isVisible, show, hide } = useTooltipShow();
 
   return (
     <div
       className="d-inline-flex align-baseline position-relative"
-      ref={tooltipRef}
+      onMouseEnter={show}
+      onMouseLeave={hide}
+      onFocus={show}
+      onBlur={hide}
+      tabIndex={0}
+      aria-describedby={isVisible ? tooltipId : undefined}
     >
       <div className="mx-2">
-        <SvgInfo />
+        <SvgInfo aria-hidden="true" />
       </div>
-      {isVisible && children}
+      {isVisible && (
+        <div id={tooltipId} role="tooltip">
+          {children}
+        </div>
+      )}
     </div>
   );
 };
