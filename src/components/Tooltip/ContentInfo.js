@@ -31,18 +31,18 @@ const ContentInfo = () => {
   return (
     <div
       className="position-absolute top-100 end-0 bg-light border border-secondary rounded p-2 z-1"
-      style={{ minWidth: '-webkit-max-content' }}
+      style={{ minWidth: 'max-content' }}
     >
       <div className="d-flex flex-column align-items-center">
         {content.map((row, rowIdx) => (
-          <div
+          <dl
             key={rowIdx}
-            className="d-flex justify-content-center align-items-center"
+            className="d-flex justify-content-center align-items-center mb-0"
           >
             {row.map((column, colIdx) => (
               <InfoItem key={colIdx} {...column} />
             ))}
-          </div>
+          </dl>
         ))}
         <SvgSunHours {...sunHours} />
       </div>
