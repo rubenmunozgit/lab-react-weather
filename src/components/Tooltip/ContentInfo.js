@@ -1,10 +1,10 @@
-import { SvgSunHours } from '../svgs/SvgSunHours';
 import React, { useContext } from 'react';
 import { LanguageContext } from '../../contexts/LanguageContext';
 import { SettingsContext } from '../../contexts/SettingsContext';
+import { WeatherContext } from '../../contexts/WeatherContext';
 import { units } from '../../utils/units';
 import { InfoItem } from './InfoItem';
-import { WeatherContext } from '../../contexts/WeatherContext';
+import { SvgSunHours } from '../svgs/SvgSunHours';
 
 const ContentInfo = () => {
   const { translatedText } = useContext(LanguageContext);
