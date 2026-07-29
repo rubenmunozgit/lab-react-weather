@@ -10,7 +10,7 @@
     "react-dom": "^18.3.1"
   },
   "devDependencies": {
-    "gh-pages": "5.0.0",
+    "gh-pages": "6.3.0",
     "parcel": "^2.16.4",
     "prettier": "3.2.5",
     "typescript": "3.3.3"
